@@ -38,6 +38,7 @@ Following fields:
 - primaryWeapon (enum: assault, support, sniper)
 - backupWeapon (enum: assault, support, sniper)
 - created (sql Timestamp, for administrator and organisator only)
+- active (boolean);
 ```
 **GamePlay**
 

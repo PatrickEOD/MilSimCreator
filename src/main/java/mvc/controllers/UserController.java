@@ -47,6 +47,7 @@ public class UserController {
 	public String add(@ModelAttribute User user) {
 		user.setCreated(getActualDate());
 		user.addPrivilege(Privilige.USER);
+		user.setActive(true);
 		userRepository.save(user);
 		return "redirect:/homePage"; //when added spring security should redirect to homepage with logged id user
 	}

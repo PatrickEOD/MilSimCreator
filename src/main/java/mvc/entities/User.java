@@ -30,7 +30,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Size(min = 2, max = 40)
 	@NotEmpty
 	private String login;
@@ -43,7 +43,7 @@ public class User {
 	@Column(nullable = false)
 	@NotEmpty
 	private String password;
-	
+
 	private String groupMember;
 
 	@Enumerated(EnumType.STRING)
@@ -62,6 +62,9 @@ public class User {
 	@Column(columnDefinition = "DATETIME", updatable = false, nullable = false)
 	@NotNull
 	private Timestamp created;
+
+	@NotNull
+	private boolean active;
 
 	public User() {
 		super();
@@ -141,6 +144,14 @@ public class User {
 
 	public void setCreated(Timestamp created) {
 		this.created = created;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 }

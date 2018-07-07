@@ -19,6 +19,7 @@
 	<form:hidden path="backupWeapon"/>
 	<form:hidden path="created"/>
 	<form:hidden path="priviliges"/>
+	<form:hidden path="active"/>
 	New Password:
 	<form:input type="password" path="password"/><br/>
 	<form:errors path="*" />

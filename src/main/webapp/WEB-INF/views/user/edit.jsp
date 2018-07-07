@@ -23,6 +23,8 @@
 	<form:checkboxes items="${WeaponType}" path="primaryWeapon"/><br/>
 	Backup weapon of choice:
 	<form:checkboxes items="${WeaponType}" path="backupWeapon"/><br/>
+	Ban user:
+	<form:checkbox path="active" value="false"/><br/>
 	<form:errors path="*" />
 		<input type="submit" value="save"/>
 </form:form>

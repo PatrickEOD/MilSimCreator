@@ -19,6 +19,7 @@
 		<th>Backup</th>
 		<th>Priviliges</th>
 		<th>Created</th>
+		<th>State</th>
 	</tr>
 	<c:forEach items="${user}" var="a">
 		<tr>
@@ -33,6 +34,7 @@
 				</c:forEach>
 			</td>
 			<td><fmt:formatDate value="${a.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+			<td>${a.active ? "OK" : "BANNED"}</td>
 			<td><a href='<c:url value="/user/edit/${a.id}"/>'>Edit User</a>
 				<a href='<c:url value="/user/editPass/${a.id}"/>'>Change password</a>
 				<a href='<c:url value="/user/delete/${a.id}"/>'>Delete User</a></td>
