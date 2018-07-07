@@ -27,6 +27,7 @@ organize teams, headquarters staff and each squad equipment, main duties, tasks 
 - limitations
 
 **Users:**
+
 Following fields:
 ```bash
 - login (unique)
@@ -36,6 +37,7 @@ Following fields:
 - priviliges (enum: player, leader, administrator, organiser)
 ```
 **GamePlay**
+
 Following fields:
 ```bash
 - title
