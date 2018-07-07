@@ -35,6 +35,8 @@ Following fields:
 - email (unique)
 - groupMember
 - priviliges (enum: player, leader, administrator, organiser)
+- primaryWeapon (enum: assault, support, sniper)
+- backupWeapon (enum: assault, support, sniper)
 ```
 **GamePlay**
 
