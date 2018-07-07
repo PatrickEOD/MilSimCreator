@@ -16,7 +16,7 @@ Thanks to this app ASG teams can collect an appropriate equipment within given M
 organize teams, headquarters staff and each squad equipment, main duties, tasks as well as areas of operation.
 
 ## Specification
-** Elements: **
+**Elements:**
 - users
 - gamePlay
 - mainMissions
@@ -26,7 +26,7 @@ organize teams, headquarters staff and each squad equipment, main duties, tasks 
 - regulations
 - limitations
 
-** Users: **
+**Users:**
 Following fields:
 ```bash
 - login (unique)
@@ -35,7 +35,7 @@ Following fields:
 - groupMember
 - priviliges (enum: player, leader, administrator, organiser)
 ```
-** GamePlay **
+**GamePlay**
 Following fields:
 ```bash
 - title
