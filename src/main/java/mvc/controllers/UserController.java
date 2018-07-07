@@ -38,17 +38,17 @@ public class UserController {
 	
 	@GetMapping("/add")
 	public String add(Model model) {
-		User user = new User();
-		user.addPrivilege(Privilige.USER);
-		user.setCreated(getActualDate());
+//		User user = new User();
 		model.addAttribute("user", new User());
 		return "user/add";
 	}
 	
 	@PostMapping("/add")
 	public String add(@ModelAttribute User user) {
+		user.setCreated(getActualDate());
+		user.addPrivilege(Privilige.USER);
 		userRepository.save(user);
-		return "redirect:/user/list"; //when added spring security should redirect to homepage with logged id user
+		return "redirect:/homePage"; //when added spring security should redirect to homepage with logged id user
 	}
 	
 	//CRUD: read
@@ -64,7 +64,13 @@ public class UserController {
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("user", userRepository.findOne(id));
-		return "article/edit";
+		return "user/edit";
+	}
+	
+	@GetMapping("/editPass/{id}")
+	public String editPassw(@PathVariable Long id, Model model) {
+		model.addAttribute("user", userRepository.findOne(id));
+		return "user/editPass";
 	}
 	
 	@PostMapping("/edit")
@@ -73,12 +79,13 @@ public class UserController {
 		return "redirect:/user/list";
 	}
 	
+
 	//CRUD: delete
 	
 	@GetMapping("/delete/{id}")
-	public String deleteArticle(@PathVariable Long id) {
+	public String delete(@PathVariable Long id) {
 		userRepository.delete(userRepository.findOne(id));
-		return "redirect:/article/list";
+		return "redirect:/user/list";
 	}
 	
 	//Single Entity Utils

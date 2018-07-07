@@ -9,12 +9,16 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import mvc.utils.enums.Privilige;
 import mvc.utils.enums.WeaponType;
@@ -26,30 +30,37 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
+	@Size(min = 2, max = 40)
+	@NotEmpty
 	private String login;
 
 	@Email
 	@Column(unique = true, nullable = false)
+	@NotEmpty
 	private String email;
 
 	@Column(nullable = false)
+	@NotEmpty
 	private String password;
-
+	
 	private String groupMember;
 
 	@Enumerated(EnumType.STRING)
-	@ElementCollection
+	@ElementCollection(targetClass = Privilige.class, fetch = FetchType.EAGER)
+	@NotNull
 	private List<Privilige> priviliges = new ArrayList<Privilige>();
 
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
+	@NotNull
 	private WeaponType primaryWeapon;
 
 	@Enumerated(EnumType.STRING)
 	private WeaponType backupWeapon;
 
 	@Column(columnDefinition = "DATETIME", updatable = false, nullable = false)
+	@NotNull
 	private Timestamp created;
 
 	public User() {

@@ -12,7 +12,8 @@
 <body>
 <div>
 	<h2>User</h2>
-	<a href='<c:url value="/user/add"/>'>Add User</a><br/>
+	<a href='<c:url value="/user/add"/>'>Register</a><br/>
+	<a href='<c:url value="/user/list"/>'>Users</a><br/>
 </div>
 
 </body>

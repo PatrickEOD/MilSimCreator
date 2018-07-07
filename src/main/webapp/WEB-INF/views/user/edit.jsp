@@ -10,5 +10,23 @@
 </head>
 <body>
 <h1>Edit User</h1>
+<form:form method="post" action="http://localhost:8080/MilSimCreator/user/add" modelAttribute="user">
+	<form:hidden path="id"/>
+	Login:
+	<form:input type="text" path="login"/><br/>
+	<form:hidden path="password"/><br/>
+	Email:
+	<form:input type="email" path="email"/><br/>
+	Group Member:
+	<form:input type="text" path="groupMember"/><br/>
+	Primary weapon of choice:
+	<form:checkboxes items="${WeaponType}" path="primaryWeapon"/><br/>
+	Backup weapon of choice:
+	<form:checkboxes items="${WeaponType}" path="backupWeapon"/><br/>
+	<form:errors path="*" />
+		<input type="submit" value="save"/>
+</form:form>
+<a href='<c:url value="/user/list"/>'>Users</a><br/>
+<a href='<c:url value="/homePage"/>'>Go To HomePage</a><br/>
 </body>
 </html>

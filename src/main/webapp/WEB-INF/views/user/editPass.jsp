@@ -6,28 +6,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Add User</title>
+<title>Change password</title>
 </head>
 <body>
-<h1>User creator</h1>
-<form:form method="post" action="http://localhost:8080/MilSimCreator/user/add" modelAttribute="user">
+<h1>Change your password</h1>
+<form:form method="post" action="http://localhost:8080/MilSimCreator/user/edit" modelAttribute="user">
 	<form:hidden path="id"/>
-	Login:
-	<form:input type="text" path="login"/><br/>
-	Password:
+	<form:hidden path="login"/>
+	<form:hidden path="email"/>
+	<form:hidden path="groupMember"/>
+	<form:hidden path="primaryWeapon"/>
+	<form:hidden path="backupWeapon"/>
+	<form:hidden path="created"/>
+	<form:hidden path="priviliges"/>
+	New Password:
 	<form:input type="password" path="password"/><br/>
-	Email:
-	<form:input type="email" path="email"/><br/>
-	Group Member:
-	<form:input type="text" path="groupMember"/><br/>
-	Primary weapon of choice:
-	<form:checkboxes items="${WeaponType}" path="primaryWeapon"/><br/>
-	Backup weapon of choice:
-	<form:checkboxes items="${WeaponType}" path="backupWeapon"/><br/>
 	<form:errors path="*" />
 	<input type="submit" value="save"/>
 </form:form>
-<a href='<c:url value="/user/list"/>'>Users</a><br/>
+<br/>
 <a href='<c:url value="/homePage"/>'>Go To HomePage</a><br/>
 
 </body>
