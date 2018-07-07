@@ -37,6 +37,7 @@ Following fields:
 - priviliges (enum: player, leader, administrator, organiser)
 - primaryWeapon (enum: assault, support, sniper)
 - backupWeapon (enum: assault, support, sniper)
+- created (sql Timestamp, for administrator and organisator only)
 ```
 **GamePlay**
 
