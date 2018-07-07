@@ -3,6 +3,7 @@ package mvc.core;
 import java.util.Locale;
 
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 
 @Configuration
@@ -35,6 +37,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 	
 	@Bean
+	@PersistenceContext
 	public LocalEntityManagerFactoryBean entityManagerFactory() {
 		LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
 		emfb.setPersistenceUnitName("MilSimDBPersistenceUnit");
@@ -50,6 +53,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		viewResolver.setViewClass(JstlView.class);
 		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;

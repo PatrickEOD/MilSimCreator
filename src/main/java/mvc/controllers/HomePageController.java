@@ -10,6 +10,7 @@ public class HomePageController {
 
 	@GetMapping("/homePage")
 	public String goToHomePage() {
-		return "redirect:/index";
+		return "homePage";
 	}
 }
+
