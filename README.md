@@ -55,4 +55,9 @@ Following fields:
 - additionalMissions (may be many, relation to additionalMissions)
 ```
 
+**Functions**
+```bash
+1. Enabled login
+2. Different features available depending on user priviliges
+```
 
