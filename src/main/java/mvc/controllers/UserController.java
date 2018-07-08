@@ -49,7 +49,7 @@ public class UserController {
 		user.addPrivilege(Privilige.USER);
 		user.setActive(true);
 		userRepository.save(user);
-		return "redirect:/homePage"; //when added spring security should redirect to homepage with logged id user
+		return "redirect:/homePage/homePage"; //when added spring security should redirect to homepage with logged id user
 	}
 	
 	//CRUD: read

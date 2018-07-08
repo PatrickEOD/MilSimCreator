@@ -73,6 +73,15 @@ public class User {
 	public void addPrivilege(Privilige priviliges) {
 		this.priviliges.add(priviliges);
 	}
+	
+	public String[] getStringPriviliges() {
+//		String[] names = (String[]) this.priviliges.stream().map(element -> element.name()).toArray();
+		String[] names = new String[this.priviliges.size()];
+		for(int i = 0; i < names.length; i++) {
+			names[i] = this.priviliges.get(i).name();
+		}
+		return names;
+	}
 
 	public Long getId() {
 		return id;
