@@ -11,6 +11,7 @@
 <title>HomePage - testPage</title>
 </head>
 <body>
+<jsp:include page="fragments/header.jsp" />
 <div>
 	<h2>User</h2>
 	<a href='<c:url value="/user/add"/>'>Add User</a><br/>

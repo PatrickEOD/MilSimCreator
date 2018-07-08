@@ -9,6 +9,7 @@
 <title>Change password</title>
 </head>
 <body>
+<jsp:include page="../fragments/header.jsp" />
 <h1>Change your password</h1>
 <form:form method="post" action="http://localhost:8080/MilSimCreator/user/edit" modelAttribute="user">
 	<form:hidden path="id"/>

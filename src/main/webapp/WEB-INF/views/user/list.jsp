@@ -9,6 +9,7 @@
 <title>List Users</title>
 </head>
 <body>
+<jsp:include page="../fragments/header.jsp" />
 <h1>List of Users</h1>
 <table>
 	<tr>

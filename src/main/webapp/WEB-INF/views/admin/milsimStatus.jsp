@@ -8,6 +8,7 @@
 <title>MilSim status</title>
 </head>
 <body>
+<jsp:include page="../fragments/header.jsp" />
 <a href='<c:url value="/homePage"/>'>Users homePage</a><br/>
 <a href='<c:url value="/user/add"/>'>Add User</a><br/>
 <a href='<c:url value="/user/list"/>'>Users</a><br/>
