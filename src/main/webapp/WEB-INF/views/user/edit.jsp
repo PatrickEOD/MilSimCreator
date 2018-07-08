@@ -12,24 +12,42 @@
 <body>
 <jsp:include page="../fragments/header.jsp" />
 <h1>Edit User</h1>
-<form:form method="post" action="http://localhost:8080/MilSimCreator/user/add" modelAttribute="user">
+<form:form method="post" action="http://localhost:8080/MilSimCreator/user/edit" modelAttribute="user">
 	<form:hidden path="id"/>
+	<form:hidden path="created"/>
+	<form:hidden path="priviliges"/>
+	<form:hidden path="password"/>
+<%-- 	<form:hidden path="active"/> --%>
+	
 	Login:
-	<form:input type="text" path="login"/><br/>
-	<form:hidden path="password"/><br/>
+	<form:input type="text" path="login"/>
+	<form:errors path="login"/><br/>
+	
 	Email:
-	<form:input type="email" path="email"/><br/>
+	<form:input type="email" path="email"/>
+	<form:errors path="email"/><br/>
+	
 	Group Member:
 	<form:input type="text" path="groupMember"/><br/>
+	
 	Primary weapon of choice:
-	<form:checkboxes items="${WeaponType}" path="primaryWeapon"/><br/>
+	<form:select path="primaryWeapon">
+		<form:option value="" label="Choose option"/>
+		<form:options items="${WeaponType}"/>
+	</form:select>
+	<form:errors path="primaryWeapon"/><br/>
+	
 	Backup weapon of choice:
-	<form:checkboxes items="${WeaponType}" path="backupWeapon"/><br/>
+	<form:select path="backupWeapon">
+		<form:option value="" label="Choose option"/>
+		<form:options items="${WeaponType}"/>
+	</form:select><br/>
+	
 	<sec:authorize access="hasRole('ADMINISTRATOR')">
-	Ban user:
-	<form:checkbox path="active" value="true"/><br/>
+	User active:
+	<form:checkbox path="active"/><br/>
 	</sec:authorize>
-	<form:errors path="*" />
+	
 		<input type="submit" value="save"/>
 </form:form>
 <a href='<c:url value="/user/list"/>'>Users</a><br/>

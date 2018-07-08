@@ -13,19 +13,38 @@
 <h1>User creator</h1>
 <form:form method="post" action="http://localhost:8080/MilSimCreator/user/add" modelAttribute="user">
 	<form:hidden path="id"/>
+	<form:hidden path="created"/>
+	<form:hidden path="priviliges"/>
+	<form:hidden path="active"/>
+	
 	Login:
-	<form:input type="text" path="login"/><br/>
+	<form:input type="text" path="login"/>
+	<form:errors path="login"/><br/>
+	
 	Password:
-	<form:input type="password" path="password"/><br/>
+	<form:input type="password" path="password"/>
+	<form:errors path="password"/><br/>
+	
 	Email:
-	<form:input type="email" path="email"/><br/>
+	<form:input type="email" path="email"/>
+	<form:errors path="email"/><br/>
+	
 	Group Member:
 	<form:input type="text" path="groupMember"/><br/>
+	
 	Primary weapon of choice:
-	<form:checkboxes items="${WeaponType}" path="primaryWeapon"/><br/>
+	<form:select path="primaryWeapon">
+		<form:option value="" label="Choose option"/>
+		<form:options items="${WeaponType}"/>
+	</form:select>
+	<form:errors path="primaryWeapon"/><br/>
+	
 	Backup weapon of choice:
-	<form:checkboxes items="${WeaponType}" path="backupWeapon"/><br/>
-	<form:errors path="*" />
+	<form:select path="backupWeapon">
+		<form:option value="" label="Not used"/>
+		<form:options items="${WeaponType}"/>
+	</form:select><br/>
+	
 	<input type="submit" value="save"/>
 </form:form>
 <a href='<c:url value="/user/list"/>'>Users</a><br/>

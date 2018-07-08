@@ -22,6 +22,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import mvc.utils.enums.Privilige;
 import mvc.utils.enums.WeaponType;
+import mvc.validators.ContentSize;
 
 @Entity
 @Table(name = "users")
@@ -53,7 +54,8 @@ public class User {
 
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	@NotNull
+//	@NotNull
+	@ContentSize
 	private WeaponType primaryWeapon;
 
 	@Enumerated(EnumType.STRING)

@@ -9,9 +9,10 @@
 <title>Change password</title>
 </head>
 <body>
+
 <jsp:include page="../fragments/header.jsp" />
 <h1>Change your password</h1>
-<form:form method="post" action="http://localhost:8080/MilSimCreator/user/edit" modelAttribute="user">
+<form:form method="post" action="http://localhost:8080/MilSimCreator/user/editPass" modelAttribute="user">
 	<form:hidden path="id"/>
 	<form:hidden path="login"/>
 	<form:hidden path="email"/>
@@ -21,9 +22,17 @@
 	<form:hidden path="created"/>
 	<form:hidden path="priviliges"/>
 	<form:hidden path="active"/>
+	<form:hidden path="password"/>
+	
+	Old Password:
+	<input type="password" name="oldPassword"/><br/>
+	
 	New Password:
-	<form:input type="password" path="password"/><br/>
-	<form:errors path="*" />
+	<input type="password" name="newPassword"/><br/>
+	
+	Confirm Password:
+	<input type="password" name="confirmPassword"/><br/>
+	
 	<input type="submit" value="save"/>
 </form:form>
 <br/>
