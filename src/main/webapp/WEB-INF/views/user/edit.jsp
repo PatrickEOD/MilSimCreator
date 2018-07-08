@@ -13,7 +13,6 @@
 <h1>Edit User</h1>
 <form:form method="post" action="http://localhost:8080/MilSimCreator/user/add" modelAttribute="user">
 	<form:hidden path="id"/>
-	<sec:authorize access="hasRole('USER')">
 	Login:
 	<form:input type="text" path="login"/><br/>
 	<form:hidden path="password"/><br/>
@@ -25,7 +24,6 @@
 	<form:checkboxes items="${WeaponType}" path="primaryWeapon"/><br/>
 	Backup weapon of choice:
 	<form:checkboxes items="${WeaponType}" path="backupWeapon"/><br/>
-	</sec:authorize>
 	<sec:authorize access="hasRole('ADMINISTRATOR')">
 	Ban user:
 	<form:checkbox path="active" value="true"/><br/>

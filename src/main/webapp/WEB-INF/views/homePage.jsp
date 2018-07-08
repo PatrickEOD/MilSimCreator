@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,8 +13,11 @@
 <body>
 <div>
 	<h2>User</h2>
-	<a href='<c:url value="/user/add"/>'>Register</a><br/>
+	<a href='<c:url value="/user/add"/>'>Add User</a><br/>
 	<a href='<c:url value="/user/list"/>'>Users</a><br/>
+	<sec:authorize access="hasRole('ADMINISTRATOR')">
+	<a href='<c:url value="/admin/status"/>'>MilSim status</a><br/>
+	</sec:authorize>
 </div>
 
 </body>
