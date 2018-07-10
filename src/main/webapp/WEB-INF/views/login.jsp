@@ -11,6 +11,11 @@
 </head>
 <body>
 <div>
+	<c:if test="${not empty newUser}">
+		<p><c:out value="${newUser}"/></p>
+	</c:if>
+</div>
+<div>
 	<c:if test="${param.loggedout != null}">
 		<p>Successfully logged out</p>
 	</c:if>
@@ -27,5 +32,8 @@
 		<input type="submit" value="Log in">
 	</form>
 </div>
+
+<p>If you still do not have account:</p>
+<a href='<c:url value="/register"/>'>Register</a><br/>
 </body>
 </html>

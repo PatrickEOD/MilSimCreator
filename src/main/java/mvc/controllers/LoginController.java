@@ -43,17 +43,27 @@ public class LoginController {
 		return "login";
 	}
 
+	@GetMapping("/register")
+	public String register(Model model) {
+		User user = new User();
+		user.setCreated(ActualDate.getActualDate());
+		user.addPrivilege(Privilige.USER);
+		user.setActive(true);
+		model.addAttribute("user", user);
+		return "register";
+	}
 	
 	@PostMapping("/register")
-	public String register(@Validated @ModelAttribute User user, BindingResult result) {
+	public String register(@Validated @ModelAttribute User user, BindingResult result, Model model) {
 		if(result.hasErrors()) {
-			return "redirect:/login";
+			return "redirect:/register";
 		}
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setActive(true);
 		user.setCreated(ActualDate.getActualDate());
 		user.addPrivilege(Privilige.USER);
 		userRepository.save(user);
-		return "homePage/homePage";
+		model.addAttribute("newUser", "You can log in now!");
+		return "login";
 	}
 }

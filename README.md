@@ -40,6 +40,12 @@ Following fields:
 - created (sql Timestamp, for administrator and organisator only)
 - active (boolean);
 ```
+- [x] User: validation
+- [x] User: log in & log out
+- [x] User: registration
+- [ ] User: when registering new user, if field groupMember is filled, new record should be saved in related to groupMember db table for $
+- [ ] User: timeline of availability for user with priviliges Organizator and Administrator for managing ogranizator stuff to support task execution
+
 **GamePlay**
 
 Following fields:
@@ -57,7 +63,28 @@ Following fields:
 
 **Functions**
 ```bash
-1. Enabled login
+1. Enabled login (login, register, change password)
 2. Different features available depending on user priviliges
 ```
+
+##Technologies
+
+> Java JSP
+> Java JSTL
+> EL
+> Maven
+> MySQL
+> Spring MVC
+> Spring Data
+> Hibernate Core
+> Hibernate Validator
+> Spring Security
+
+##To do in future
+
+- [ ] HTML/CSS + javaScrpt customization to webPages
+- [ ] JSP/HTML: translation files for all messages to be easily switchable for different languages
+- [ ] Switch between different languages for all views
+- [ ] Password feature: adding requirement to password complexity
+- [ ] Registration feature: enable auto login after registration
 
