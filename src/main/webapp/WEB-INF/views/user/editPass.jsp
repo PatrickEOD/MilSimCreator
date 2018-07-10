@@ -24,6 +24,17 @@
 	<form:hidden path="active"/>
 	<form:hidden path="password"/>
 	
+	<div>
+		<c:if test="${not empty wrongPassword}">
+			<p><c:out value="${wrongPassword}"/></p>
+		</c:if>
+	</div>
+	<div>
+		<c:if test="${not empty wrongConfirm}">
+			<p><c:out value="${wrongConfirm}"/></p>
+		</c:if>
+	</div>
+	
 	Old Password:
 	<input type="password" name="oldPassword"/><br/>
 	
