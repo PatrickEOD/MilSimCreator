@@ -108,12 +108,9 @@ public class UserController {
 				return "redirect:/user/list";
 			} else {
 				model.addAttribute("wrongConfirm", "New password is different from confirm password!");
-				System.out.println("============================Wrong confirmation===============================");
 			}
 		} else {
 			model.addAttribute("wrongPassword", "Old password is not the password you want to change!");
-			System.out.println("============================Wrong password===============================");
-//			return "redirect:user/editPass";
 		}
 		model.addAttribute("user", user);
 		return "user/editPass";
