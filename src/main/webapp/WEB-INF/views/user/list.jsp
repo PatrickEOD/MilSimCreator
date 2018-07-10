@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,7 +38,9 @@
 			<td><fmt:formatDate value="${a.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 			<td>${a.active ? "OK" : "BANNED"}</td>
 			<td><a href='<c:url value="/user/edit/${a.id}"/>'>Edit User</a>
-				<a href='<c:url value="/user/editPass/${a.id}"/>'>Change password</a>
+				<sec:authorize access="hasRole('ADMINISTRATOR')">
+					<a href='<c:url value="/user/editPass/${a.id}"/>'>Change password</a>
+				</sec:authorize>
 				<a href='<c:url value="/user/delete/${a.id}"/>'>Delete User</a></td>
 		</tr>
 	</c:forEach>
