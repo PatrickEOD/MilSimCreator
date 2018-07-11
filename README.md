@@ -61,26 +61,58 @@ Following fields:
 - additionalMissions (may be many, relation to additionalMissions)
 ```
 
-**Functions**
+**Additional Missions:**
+
+Following fields:
+```bash
+- milsim_id (may be many, assigned to a specific milsim)
+- description (String)
+- timeline (String)
+- assignation
+```
+
+## Views
+View | Characteristics
+---- | ---------------
+login.jsp | [x] Login and password fields<br/> [x] Link to registration page
+register.jsp | [x] Basic user details available for user to register<br/> [x]At create set user privilites as 'USER'<br/>[x] At create set user as 'ACTIVE'
+HomePage.jsp | [x] Table of user's team members<br/>[ ] Table of users in corresponding side of conflict<br/>[ ] MilSim info<br/>[ ] Tweets with comments<br/>[ ] Missions list with content<br/>[ ] Table with formed division<br/>[ ] Links to milsim details
+user/add.jsp | [x] Basic user details available for users and administrator<br/>[x] Ability to ban user only for administrator<br/>[ ] Ability to add/change privilites to user only for administrator
+user/edit.jsp | [x] Basic user details available for users and administrator<br/>[x] Link to separate page for change password only, available for user and administrator<br/>[ ] Ability to ban user only for administrator<br/>[ ] Ability to add/change priviliges 
+to user only for administrator
+user/editPass.jsp | [x] OldPassword confirmation<br/>[x] NewPassword confirmation
+user/list.jsp | [x] All entity fields available as columns<br/>[x] Available for administrator<br/>[x] Change password and delete user only for administrator
+admin/adminPanel.jsp | [ ] Ability to create new milsim<br/>[ ] List of organizator members<br/>[ ] List of milsims with status ended/planned<br/>[ ] Ability to create new missions<br/>[ ] Ability to assing member to take care of mission<br/>[ ] Users list
+
+## Functions
 ```bash
 1. Enabled login (login, register, change password)
 2. Different features available depending on user priviliges
 ```
 
-##Technologies
+## Technologies
 
 > Java JSP
+
 > Java JSTL
+
 > EL
+
 > Maven
+
 > MySQL
+
 > Spring MVC
+
 > Spring Data
+
 > Hibernate Core
+
 > Hibernate Validator
+
 > Spring Security
 
-##To do in future
+## To do in future
 
 - [ ] HTML/CSS + javaScrpt customization to webPages
 - [ ] JSP/HTML: translation files for all messages to be easily switchable for different languages
