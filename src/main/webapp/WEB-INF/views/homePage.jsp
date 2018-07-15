@@ -30,6 +30,36 @@
 			</c:forEach>
 		</table>
 	</div>
+	<div>
+	<h3>New Message:</h3>
+		<form:form method="post" action="http://localhost:8080/MilSimCreator/tweet/add" modelAttribute="addTweet">
+			<form:hidden path="id"/>
+			<form:hidden path="user"/>
+			<form:hidden path="created"/>
+			Text:
+			<form:input type="text" path="text"/>
+			<form:errors path="text"/>
+			
+			<input type="submit" value="Send"/>
+		</form:form>
+	</div>
+	<div>
+	<h3>Messages:</h3>
+		<table>
+			<tr>
+				<th>Text:</th>
+				<th>User</th>
+				<th>Date:</th>
+			</tr>
+			<c:forEach items="${tweetList}" var="tweet">
+				<tr>
+					<td>${tweet.text}</td>
+					<td>${tweet.user.login}</td>
+					<td><fmt:formatDate value="${tweet.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				</tr>
+			</c:forEach>			
+		</table>
+	</div>
 	<a href='<c:url value="/user/edit/${authorizedUser.id}"/>'>Edit account</a>
 	<sec:authorize access="hasRole('ADMINISTRATOR')">
 	<a href='<c:url value="/user/add"/>'>Add User</a><br/>

@@ -2,15 +2,20 @@ package mvc.controllers;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import mvc.entities.Tweet;
 import mvc.entities.User;
+import mvc.repositories.TweetRepository;
 import mvc.repositories.UserRepository;
+import mvc.utils.ActualDate;
 import mvc.utils.AuthenticationFacade;
 
 @Controller
@@ -18,10 +23,12 @@ import mvc.utils.AuthenticationFacade;
 public class HomePageController {
 
 	private UserRepository userRepository;
+	private TweetRepository tweetRepository;
 
 	@Autowired
-	public HomePageController(UserRepository userRepository) {
+	public HomePageController(UserRepository userRepository, TweetRepository tweetRepository) {
 		this.userRepository = userRepository;
+		this.tweetRepository = tweetRepository;
 	}
 
 	@Autowired
@@ -29,7 +36,7 @@ public class HomePageController {
 
 	@ModelAttribute("authorizedUser")
 	public User getAuthUser() {
-		User user = userRepository.findByLogin(authenticationFacade.getAuthenticaiton().getName());
+		User user = userRepository.findByLogin(authenticationFacade.getAuthentication().getName());
 		return user;
 	}
 	
@@ -41,6 +48,18 @@ public class HomePageController {
 
 	@GetMapping("/homePage")
 	public String goToHomePage(Model model) {
+		//Add tweet form
+		Tweet tweet = new Tweet();
+		Authentication authentication = authenticationFacade.getAuthentication();
+		User user = userRepository.findByLogin(authentication.getName());
+		Hibernate.initialize(user.getTweets());
+		tweet.setUser(user);
+		tweet.setCreated(ActualDate.getActualDate());
+		model.addAttribute("addTweet", tweet);
+		
+		//List tweets form
+		model.addAttribute("tweetList", tweetRepository.findAll());
+		
 		return "homePage";
 	}
 }
