@@ -76,8 +76,8 @@ public class User {
 //	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	// @LazyCollection(LazyCollectionOption.FALSE)
-	// private List<Tweet> tweets = new ArrayList<Tweet>();
-	private Set<Tweet> tweets = new LinkedHashSet<Tweet>();
+	 private List<Tweet> tweets = new ArrayList<Tweet>();
+//	private Set<Tweet> tweets = new LinkedHashSet<Tweet>();
 
 	public User() {
 		super();
@@ -87,7 +87,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", login=" + login + ", email=" + email + ", password=" + password + ", groupMember="
 				+ groupMember + ", priviliges=" + priviliges + ", primaryWeapon=" + primaryWeapon + ", backupWeapon="
-				+ backupWeapon + ", created=" + created + ", active=" + active + ", tweets=" + tweets + "]";
+				+ backupWeapon + ", created=" + created + ", active=" + active + "]";
 	}
 
 	@Override
@@ -260,11 +260,11 @@ public class User {
 		this.active = active;
 	}
 
-	public Set<Tweet> getTweets() {
+	public List<Tweet> getTweets() {
 		return tweets;
 	}
 
-	public void setTweets(Set<Tweet> tweets) {
+	public void setTweets(List<Tweet> tweets) {
 		this.tweets = tweets;
 	}
 

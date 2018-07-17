@@ -13,10 +13,10 @@ INSERT INTO User_priviliges (User_id, priviliges) VALUES (5, "USER")
 INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("SPAJDA", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "SPAIDA@wp.pl", "SNIPER", "SUPPORT", "OSA", "2012-06-30 17:35:21", true);
 INSERT INTO User_priviliges (User_id, priviliges) VALUES (6, "USER")
 
-INSERT INTO Tweet (created, text, user_id) VALUES ("2013-04-12 21:12:43", "Test tweet 1", "1");
-INSERT INTO Tweet (created, text, user_id) VALUES ("2013-04-12 21:13:43", "Test tweet 2", "1");
-INSERT INTO Tweet (created, text, user_id) VALUES ("2013-04-12 21:14:43", "Test tweet 3", "1");
-INSERT INTO Tweet (created, text, user_id) VALUES ("2013-04-12 21:15:43", "Test tweet 4", "1");
-INSERT INTO Tweet (created, text, user_id) VALUES ("2013-04-12 21:16:43", "Test tweet 5", "1");
+INSERT INTO tweets (created, text, user_id) VALUES ("2013-04-12 21:12:43", "Test tweet 1", "1");
+INSERT INTO tweets (created, text, user_id) VALUES ("2013-04-12 21:13:43", "Test tweet 2", "1");
+INSERT INTO tweets (created, text, user_id) VALUES ("2013-04-12 21:14:43", "Test tweet 3", "1");
+INSERT INTO tweets (created, text, user_id) VALUES ("2013-04-12 21:15:43", "Test tweet 4", "1");
+INSERT INTO tweets (created, text, user_id) VALUES ("2013-04-12 21:16:43", "Test tweet 5", "1");
 
 

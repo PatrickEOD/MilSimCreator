@@ -16,6 +16,7 @@ import mvc.entities.Tweet;
 import mvc.entities.User;
 import mvc.repositories.TweetRepository;
 import mvc.repositories.UserRepository;
+import mvc.services.UserService;
 import mvc.utils.ActualDate;
 import mvc.utils.AuthenticationFacade;
 
@@ -31,6 +32,9 @@ public class TweetController {
 		this.tweetRepository = tweetRepository;
 		this.userRepository = userRepository;
 	}
+	
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
@@ -51,15 +55,15 @@ public class TweetController {
 	public String add(@Validated @ModelAttribute (name = "addTweet") Tweet tweet, BindingResult result) {
 		System.out.println("==========================================" + tweet.getText());
 		System.out.println("==========================================" + tweet.getCreated());
-		System.out.println("==========================================" + tweet.getUser().getLogin());
+//		System.out.println("==========================================" + tweet.getUser().getLogin());
 		if(result.hasErrors()) {
 			System.out.println("========================================== redirect");
 			return "redirect:/homePage";
 		}
-//		Authentication authentication = authenticationFacade.getAuthentication();
-//		User user = userRepository.findByLogin(authentication.getName());
-//		tweet.setUser(user);
-		tweet.setCreated(ActualDate.getActualDate());
+		Authentication authentication = authenticationFacade.getAuthentication();
+		User user = userService.getUser(authentication.getName());
+		tweet.setUser(user);
+//		tweet.setCreated(ActualDate.getActualDate());
 		System.out.println("========================================== before save");
 		tweetRepository.save(tweet);
 		System.out.println("========================================== after save");

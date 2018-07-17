@@ -34,7 +34,7 @@
 	<h3>New Message:</h3>
 		<form:form method="post" action="http://localhost:8080/MilSimCreator/tweet/add" modelAttribute="addTweet">
 			<form:hidden path="id"/>
-			<form:hidden path="user"/>
+<%-- 			<form:hidden path="user"/> --%>
 			<form:hidden path="created"/>
 			Text:
 			<form:input type="text" path="text"/>

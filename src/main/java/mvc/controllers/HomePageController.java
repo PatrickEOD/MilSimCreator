@@ -2,7 +2,6 @@ package mvc.controllers;
 
 import java.util.List;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,7 @@ import mvc.entities.Tweet;
 import mvc.entities.User;
 import mvc.repositories.TweetRepository;
 import mvc.repositories.UserRepository;
+import mvc.services.UserService;
 import mvc.utils.ActualDate;
 import mvc.utils.AuthenticationFacade;
 
@@ -30,6 +30,9 @@ public class HomePageController {
 		this.userRepository = userRepository;
 		this.tweetRepository = tweetRepository;
 	}
+	
+	@Autowired
+	private UserService userService;
 
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
@@ -51,8 +54,9 @@ public class HomePageController {
 		//Add tweet form
 		Tweet tweet = new Tweet();
 		Authentication authentication = authenticationFacade.getAuthentication();
-		User user = userRepository.findByLogin(authentication.getName());
-		Hibernate.initialize(user.getTweets());
+//		User user = userRepository.findByLogin(authentication.getName());
+		User user = userService.getUser(authentication.getName());
+//		Hibernate.initialize(user);
 		tweet.setUser(user);
 		tweet.setCreated(ActualDate.getActualDate());
 		model.addAttribute("addTweet", tweet);

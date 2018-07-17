@@ -9,7 +9,7 @@ public class AuthUserDetails {
 	private AuthenticationFacade authenticationFacade;
 	
 	public String authUserName() {
-		Authentication auth = authenticationFacade.getAuthenticaiton();
+		Authentication auth = authenticationFacade.getAuthentication();
 		return auth.getName();
 	}
 }
