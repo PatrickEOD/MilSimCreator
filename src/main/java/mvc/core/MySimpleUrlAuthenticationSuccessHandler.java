@@ -60,6 +60,7 @@ implements AuthenticationSuccessHandler {
   protected String determineTargetUrl(org.springframework.security.core.Authentication authentication) {
       boolean isUser = false;
       boolean isAdmin = false;
+      boolean isOrganisator = false;
       Collection<? extends GrantedAuthority> authorities
        =  authentication.getAuthorities();
       for (GrantedAuthority grantedAuthority : authorities) {
@@ -69,6 +70,9 @@ implements AuthenticationSuccessHandler {
           } else if (grantedAuthority.getAuthority().equals("ROLE_ADMINISTRATOR")) {
               isAdmin = true;
               break;
+          } else if (grantedAuthority.getAuthority().equals("ROLE_ORGANISATOR")) {
+        	  isOrganisator = true;
+        	  break;
           }
       }
 
@@ -76,6 +80,8 @@ implements AuthenticationSuccessHandler {
           return "/homePage";
       } else if (isAdmin) {
           return "/homePage";
+      } else if (isOrganisator) {
+    	  return "/homePage";
       } else {
           throw new IllegalStateException();
       }

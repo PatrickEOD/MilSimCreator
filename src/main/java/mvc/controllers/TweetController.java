@@ -59,6 +59,12 @@ public class TweetController {
 		return "homePage";
 	}
 	
+	@GetMapping("/userTweetList/{userLogin}")
+	public String userTweetList(@PathVariable Long userLogin, Model model) {
+		model.addAttribute("userTweets", tweetService.getTweetList(userService.getUser(userLogin)));
+		return "user/tweets";
+	}
+	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		Tweet tweet = tweetService.getTweet(id);

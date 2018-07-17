@@ -18,6 +18,7 @@ organize teams, headquarters staff and each squad equipment, main duties, tasks 
 ## Specification
 **Elements:**
 - users
+- tweets
 - gamePlay
 - mainMissions
 - additionalMissions
@@ -45,6 +46,19 @@ Following fields:
 - [x] User: registration
 - [ ] User: when registering new user, if field groupMember is filled, new record should be saved in related to groupMember db table for $
 - [ ] User: timeline of availability for user with priviliges Organizator and Administrator for managing ogranizator stuff to support task execution
+
+**Tweets:**
+
+Following fields:
+```bash
+- text (requred)
+- user
+- created (sql Timestamp)
+```
+- [x] Tweet: validation
+- [x] Tweet: delete function avaliable only for tweet author
+- [x] Tweet: separate page for viewing user's tweets
+- [ ] Tweet: comments for each tweet
 
 **GamePlay**
 
@@ -82,6 +96,7 @@ user/edit.jsp | [x] Basic user details available for users and administrator<br/
 to user only for administrator
 user/editPass.jsp | [x] OldPassword confirmation<br/>[x] NewPassword confirmation
 user/list.jsp | [x] All entity fields available as columns<br/>[x] Available for administrator<br/>[x] Change password and delete user only for administrator
+user/tweets.jsp | [x] List of user tweets
 admin/adminPanel.jsp | [ ] Ability to create new milsim<br/>[ ] List of organizator members<br/>[ ] List of milsims with status ended/planned<br/>[ ] Ability to create new missions<br/>[ ] Ability to assing member to take care of mission<br/>[ ] Users list
 
 ## Functions
@@ -115,6 +130,7 @@ admin/adminPanel.jsp | [ ] Ability to create new milsim<br/>[ ] List of organiza
 ## To do in future
 
 - [ ] HTML/CSS + javaScrpt customization to webPages
+- [ ] JSP/HTML: cover with bootstrap
 - [ ] JSP/HTML: translation files for all messages to be easily switchable for different languages
 - [ ] Switch between different languages for all views
 - [ ] Password feature: adding requirement to password complexity

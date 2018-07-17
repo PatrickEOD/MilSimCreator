@@ -31,20 +31,20 @@
 		</table>
 	</div>
 	<div>
-	<h3>New Message:</h3>
+	<h3>Add conversations:</h3>
 		<form:form method="post" action="http://localhost:8080/MilSimCreator/tweet/add" modelAttribute="addTweet">
 			<form:hidden path="id"/>
 <%-- 			<form:hidden path="user"/> --%>
 			<form:hidden path="created"/>
-			Text:
-			<form:input type="text" path="text"/>
+			<form:label path="text">Type a post:</form:label><br/>
+			<form:textarea type="text" rows="4" cols="50" path="text"/>
 			<form:errors path="text"/>
 			
 			<input type="submit" value="Send"/>
 		</form:form>
 	</div>
 	<div>
-	<h3>Messages:</h3>
+	<h3>Conversations:</h3>
 		<table>
 			<tr>
 				<th>Text:</th>
@@ -56,11 +56,15 @@
 					<td>${tweet.text}</td>
 					<td>${tweet.user.login}</td>
 					<td><fmt:formatDate value="${tweet.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+					<c:if test="${tweet.user.login == authorizedUser.login}">
+						<td><a href='<c:url value="/tweet/delete/${tweet.id}"/>'>Delete</a></td>
+					</c:if>
 				</tr>
 			</c:forEach>			
 		</table>
 	</div>
-	<a href='<c:url value="/user/edit/${authorizedUser.id}"/>'>Edit account</a>
+	<a href='<c:url value="/user/edit/${authorizedUser.id}"/>'>Edit account</a></br>
+	<a href='<c:url value="/tweet/userTweetList/${authorizedUser.id}"/>'>Your conversations</a><br/>
 	<sec:authorize access="hasRole('ADMINISTRATOR')">
 	<a href='<c:url value="/user/add"/>'>Add User</a><br/>
 	<a href='<c:url value="/user/list"/>'>Users</a><br/>
