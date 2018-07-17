@@ -49,25 +49,21 @@ public class TweetController {
 		Authentication authentication = authenticationFacade.getAuthentication();
 		User user = userService.getUser(authentication.getName());
 		tweet.setUser(user);
-//		tweet.setCreated(ActualDate.getActualDate());
 		tweetRepository.save(tweet);
 		return "redirect:/homePage";
 	}
 	
 	@GetMapping("/tweetList")
 	public String list(Model model) {
-//		model.addAttribute("tweetList", tweetRepository.findAll());
 		model.addAttribute("tweetList", tweetService.getTweetList());
 		return "homePage";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
-//		Tweet tweet = tweetRepository.findOne(id);
 		Tweet tweet = tweetService.getTweet(id);
 		Authentication authentication = authenticationFacade.getAuthentication();
 		if(authentication.getName().equals(tweet.getUser().getLogin())) {
-//			model.addAttribute(tweetRepository.findOne(id));
 			model.addAttribute("editTweet", tweet);
 			return "tweet/edit";
 		}
@@ -79,14 +75,12 @@ public class TweetController {
 		if(result.hasErrors()) {
 			return "homePage";
 		}
-//		tweetRepository.save(tweet);
 		tweetService.saveTweet(tweet);
 		return "redirect:/homePage";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Long id) {
-//		tweetRepository.delete(tweetRepository.findOne(id));
 		tweetService.deleteTweet(id);
 		return "redirect:/homePage";
 	}

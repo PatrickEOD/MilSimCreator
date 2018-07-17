@@ -83,11 +83,4 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addConverter(getUserConverter());
 	}
-	
-//	@Bean
-//	public Authentication authUser() {
-//		AuthenticationFacade authFacade = new AuthenticationFacade();
-//		Authentication authentication = authFacade.getAuthenticaiton();
-//		return authentication;
-//	}
 }

@@ -23,7 +23,6 @@ public class Tweet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	// @Size(min = 1, max = 140)
 	@Length(min = 1, max = 140)
 	@NotBlank
 	private String text;

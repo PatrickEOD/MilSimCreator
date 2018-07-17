@@ -61,7 +61,6 @@ public class HomePageController {
 		model.addAttribute("addTweet", tweet);
 		
 		//List tweets form
-//		model.addAttribute("tweetList", tweetRepository.findAll());
 		model.addAttribute("tweetList", tweetService.getTweetList());
 		
 		return "homePage";
