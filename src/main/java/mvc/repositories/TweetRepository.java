@@ -12,4 +12,5 @@ import mvc.entities.User;
 public interface TweetRepository extends JpaRepository<Tweet, Long> {
 
 	List<Tweet> findByUser(User user);
+	
 }

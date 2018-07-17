@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mvc.entities.User;
-import mvc.repositories.UserRepository;
 import mvc.services.UserService;
 import mvc.utils.ActualDate;
 import mvc.utils.enums.Privilige;
@@ -24,13 +23,6 @@ import mvc.utils.enums.WeaponType;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
-//	private UserRepository userRepository;
-//	
-//	@Autowired
-//	public UserController(UserRepository userRepository) {
-//		this.userRepository = userRepository;
-//	}
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;

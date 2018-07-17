@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import mvc.entities.User;
-import mvc.repositories.UserRepository;
 import mvc.services.UserService;
 import mvc.utils.ActualDate;
 import mvc.utils.enums.Privilige;
@@ -23,12 +22,6 @@ import mvc.utils.enums.Privilige;
 @RequestMapping("/")
 public class LoginController {
 
-	private UserRepository userRepository;
-	
-	@Autowired
-	public LoginController(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
 	
 	@Autowired
 	private UserService userService;
@@ -67,7 +60,6 @@ public class LoginController {
 		user.setCreated(ActualDate.getActualDate());
 		user.addPrivilege(Privilige.USER);
 		userService.saveUser(user);
-//		userRepository.save(user);
 		model.addAttribute("newUser", "You can log in now!");
 		return "login";
 	}

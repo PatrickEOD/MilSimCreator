@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mvc.entities.Tweet;
 import mvc.entities.User;
 import mvc.repositories.TweetRepository;
-import mvc.repositories.UserRepository;
+import mvc.services.TweetService;
 import mvc.services.UserService;
-import mvc.utils.ActualDate;
 import mvc.utils.AuthenticationFacade;
 
 @Controller
@@ -25,63 +24,51 @@ import mvc.utils.AuthenticationFacade;
 public class TweetController {
 
 	private TweetRepository tweetRepository;
-	private UserRepository userRepository;
 
 	@Autowired
-	public TweetController(TweetRepository tweetRepository, UserRepository userRepository) {
+	public TweetController(TweetRepository tweetRepository) {
 		this.tweetRepository = tweetRepository;
-		this.userRepository = userRepository;
 	}
 	
 	@Autowired
 	private UserService userService;
 	
 	@Autowired
-	private AuthenticationFacade authenticationFacade;
+	private TweetService tweetService;
 	
-//	@Autowired
-//	private Authentication authentication;
+	@Autowired
+	private AuthenticationFacade authenticationFacade;
 	
 	// CRUD
 
-//	@GetMapping("/add")
-//	public String add(Model model) {
-//		Tweet tweet = new Tweet();
-//		model.addAttribute("tweet", tweet);
-//		return "homePage";
-//	}
-	
 	@PostMapping("/add")
 	public String add(@Validated @ModelAttribute (name = "addTweet") Tweet tweet, BindingResult result) {
-		System.out.println("==========================================" + tweet.getText());
-		System.out.println("==========================================" + tweet.getCreated());
-//		System.out.println("==========================================" + tweet.getUser().getLogin());
 		if(result.hasErrors()) {
-			System.out.println("========================================== redirect");
 			return "redirect:/homePage";
 		}
 		Authentication authentication = authenticationFacade.getAuthentication();
 		User user = userService.getUser(authentication.getName());
 		tweet.setUser(user);
 //		tweet.setCreated(ActualDate.getActualDate());
-		System.out.println("========================================== before save");
 		tweetRepository.save(tweet);
-		System.out.println("========================================== after save");
 		return "redirect:/homePage";
 	}
 	
 	@GetMapping("/tweetList")
 	public String list(Model model) {
-		model.addAttribute("tweetList", tweetRepository.findAll());
+//		model.addAttribute("tweetList", tweetRepository.findAll());
+		model.addAttribute("tweetList", tweetService.getTweetList());
 		return "homePage";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
-		Tweet tweet = tweetRepository.findOne(id);
+//		Tweet tweet = tweetRepository.findOne(id);
+		Tweet tweet = tweetService.getTweet(id);
 		Authentication authentication = authenticationFacade.getAuthentication();
 		if(authentication.getName().equals(tweet.getUser().getLogin())) {
-			model.addAttribute(tweetRepository.findOne(id));
+//			model.addAttribute(tweetRepository.findOne(id));
+			model.addAttribute("editTweet", tweet);
 			return "tweet/edit";
 		}
 		return "redirect:/homePage";
@@ -92,13 +79,15 @@ public class TweetController {
 		if(result.hasErrors()) {
 			return "homePage";
 		}
-		tweetRepository.save(tweet);
+//		tweetRepository.save(tweet);
+		tweetService.saveTweet(tweet);
 		return "redirect:/homePage";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Long id) {
-		tweetRepository.delete(tweetRepository.findOne(id));
+//		tweetRepository.delete(tweetRepository.findOne(id));
+		tweetService.deleteTweet(id);
 		return "redirect:/homePage";
 	}
 }

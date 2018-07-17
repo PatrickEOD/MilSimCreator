@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mvc.entities.Tweet;
 import mvc.entities.User;
 import mvc.repositories.TweetRepository;
-import mvc.repositories.UserRepository;
+import mvc.services.TweetService;
 import mvc.services.UserService;
 import mvc.utils.ActualDate;
 import mvc.utils.AuthenticationFacade;
@@ -22,31 +22,30 @@ import mvc.utils.AuthenticationFacade;
 @RequestMapping("/")
 public class HomePageController {
 
-	private UserRepository userRepository;
 	private TweetRepository tweetRepository;
 
 	@Autowired
-	public HomePageController(UserRepository userRepository, TweetRepository tweetRepository) {
-		this.userRepository = userRepository;
+	public HomePageController(TweetRepository tweetRepository) {
 		this.tweetRepository = tweetRepository;
 	}
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private TweetService tweetService;
 
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
 
 	@ModelAttribute("authorizedUser")
 	public User getAuthUser() {
-//		User user = userRepository.findByLogin(authenticationFacade.getAuthentication().getName());
 		User user = userService.getUser(authenticationFacade.getAuthentication().getName());
 		return user;
 	}
 	
 	@ModelAttribute("groupMembers")
 	public List<User> getGroupMembers() {
-//		List<User> groupMembers = userRepository.getByGroupMember(getAuthUser().getGroupMember());
 		List<User> groupMembers = userService.getUsersList(getAuthUser().getGroupMember());
 		return groupMembers;
 	}
@@ -56,14 +55,14 @@ public class HomePageController {
 		//Add tweet form
 		Tweet tweet = new Tweet();
 		Authentication authentication = authenticationFacade.getAuthentication();
-//		User user = userRepository.findByLogin(authentication.getName());
 		User user = userService.getUser(authentication.getName());
 		tweet.setUser(user);
 		tweet.setCreated(ActualDate.getActualDate());
 		model.addAttribute("addTweet", tweet);
 		
 		//List tweets form
-		model.addAttribute("tweetList", tweetRepository.findAll());
+//		model.addAttribute("tweetList", tweetRepository.findAll());
+		model.addAttribute("tweetList", tweetService.getTweetList());
 		
 		return "homePage";
 	}
