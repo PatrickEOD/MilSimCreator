@@ -39,13 +39,15 @@ public class HomePageController {
 
 	@ModelAttribute("authorizedUser")
 	public User getAuthUser() {
-		User user = userRepository.findByLogin(authenticationFacade.getAuthentication().getName());
+//		User user = userRepository.findByLogin(authenticationFacade.getAuthentication().getName());
+		User user = userService.getUser(authenticationFacade.getAuthentication().getName());
 		return user;
 	}
 	
 	@ModelAttribute("groupMembers")
 	public List<User> getGroupMembers() {
-		List<User> groupMembers = userRepository.getByGroupMember(getAuthUser().getGroupMember());
+//		List<User> groupMembers = userRepository.getByGroupMember(getAuthUser().getGroupMember());
+		List<User> groupMembers = userService.getUsersList(getAuthUser().getGroupMember());
 		return groupMembers;
 	}
 
@@ -56,7 +58,6 @@ public class HomePageController {
 		Authentication authentication = authenticationFacade.getAuthentication();
 //		User user = userRepository.findByLogin(authentication.getName());
 		User user = userService.getUser(authentication.getName());
-//		Hibernate.initialize(user);
 		tweet.setUser(user);
 		tweet.setCreated(ActualDate.getActualDate());
 		model.addAttribute("addTweet", tweet);

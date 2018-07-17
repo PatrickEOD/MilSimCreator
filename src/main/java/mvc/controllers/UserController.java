@@ -1,8 +1,6 @@
 package mvc.controllers;
 
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import mvc.entities.User;
 import mvc.repositories.UserRepository;
+import mvc.services.UserService;
 import mvc.utils.ActualDate;
 import mvc.utils.enums.Privilige;
 import mvc.utils.enums.WeaponType;
@@ -26,15 +25,18 @@ import mvc.utils.enums.WeaponType;
 @RequestMapping("/user")
 public class UserController {
 	
-	private UserRepository userRepository;
-	
-	@Autowired
-	public UserController(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+//	private UserRepository userRepository;
+//	
+//	@Autowired
+//	public UserController(UserRepository userRepository) {
+//		this.userRepository = userRepository;
+//	}
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private UserService userService;
 	
 	@ModelAttribute("WeaponType")
 	public WeaponType[] weaponType() {
@@ -58,10 +60,10 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "user/add";
 		}
-//		user.setCreated(ActualDate.getActualDate());
-//		user.addPrivilege(Privilige.USER);
-//		user.setActive(true);
-		userRepository.save(user);
+		user.setCreated(ActualDate.getActualDate());
+		user.addPrivilege(Privilige.USER);
+		user.setActive(true);
+		userService.saveUser(user);
 		return "redirect:/homePage"; 
 	}
 	
@@ -69,7 +71,7 @@ public class UserController {
 	
 	@GetMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("user", userRepository.findAll());
+		model.addAttribute("user", userService.getUsersList());
 		return "user/list";
 	}
 	
@@ -77,7 +79,7 @@ public class UserController {
 	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
-		model.addAttribute("user", userRepository.findOne(id));
+		model.addAttribute("user", userService.getUser(id));
 		return "user/edit";
 	}
 	
@@ -86,14 +88,13 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "homePage"; 	
 		}
-		userRepository.save(user);
+		userService.saveUser(user);
 		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/editPass/{id}")
 	public String editPassw(@PathVariable Long id, Model model) {
-		User user = userRepository.findOne(id);
-//		user.setPassword(null);
+		User user = userService.getUser(id);
 		model.addAttribute("user", user);
 		return "user/editPass";
 	}
@@ -104,7 +105,7 @@ public class UserController {
 		if(passwordEncoder.matches(oldPassword, user.getPassword())) {
 			if(newPassword.equals(confirmPassword)) {
 				user.setPassword(passwordEncoder.encode(newPassword));
-				userRepository.save(user);
+				userService.saveUser(user);
 				return "redirect:/user/list";
 			} else {
 				model.addAttribute("wrongConfirm", "New password is different from confirm password!");
@@ -120,7 +121,7 @@ public class UserController {
 	
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Long id) {
-		userRepository.delete(userRepository.findOne(id));
+		userService.deleteUser(id);
 		return "redirect:/user/list";
 	}
 	
