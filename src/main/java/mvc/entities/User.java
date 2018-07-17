@@ -2,9 +2,7 @@ package mvc.entities;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -78,6 +76,9 @@ public class User {
 	// @LazyCollection(LazyCollectionOption.FALSE)
 	 private List<Tweet> tweets = new ArrayList<Tweet>();
 //	private Set<Tweet> tweets = new LinkedHashSet<Tweet>();
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Comment> comments = new ArrayList<Comment>();
 
 	public User() {
 		super();

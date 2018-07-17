@@ -23,13 +23,6 @@ import mvc.utils.AuthenticationFacade;
 @RequestMapping("/tweet")
 public class TweetController {
 
-	private TweetRepository tweetRepository;
-
-	@Autowired
-	public TweetController(TweetRepository tweetRepository) {
-		this.tweetRepository = tweetRepository;
-	}
-	
 	@Autowired
 	private UserService userService;
 	
@@ -49,7 +42,7 @@ public class TweetController {
 		Authentication authentication = authenticationFacade.getAuthentication();
 		User user = userService.getUser(authentication.getName());
 		tweet.setUser(user);
-		tweetRepository.save(tweet);
+		tweetService.saveTweet(tweet);
 		return "redirect:/homePage";
 	}
 	

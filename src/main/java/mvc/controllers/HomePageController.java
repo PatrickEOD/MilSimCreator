@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import mvc.entities.Comment;
 import mvc.entities.Tweet;
 import mvc.entities.User;
 import mvc.repositories.TweetRepository;
+import mvc.services.CommentService;
 import mvc.services.TweetService;
 import mvc.services.UserService;
 import mvc.utils.ActualDate;
@@ -34,6 +36,9 @@ public class HomePageController {
 	
 	@Autowired
 	private TweetService tweetService;
+	
+	@Autowired
+	private CommentService CommentService;
 
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
@@ -52,16 +57,27 @@ public class HomePageController {
 
 	@GetMapping("/homePage")
 	public String goToHomePage(Model model) {
-		//Add tweet form
-		Tweet tweet = new Tweet();
+		
 		Authentication authentication = authenticationFacade.getAuthentication();
 		User user = userService.getUser(authentication.getName());
+
+		//Add tweet form
+		Tweet tweet = new Tweet();
 		tweet.setUser(user);
 		tweet.setCreated(ActualDate.getActualDate());
 		model.addAttribute("addTweet", tweet);
 		
 		//List tweets form
 		model.addAttribute("tweetList", tweetService.getTweetList());
+		
+		//Add comments form
+		Comment comment = new Comment();
+		comment.setUser(user);
+		comment.setCreated(ActualDate.getActualDate());
+		model.addAttribute("addComment", comment);
+		
+		//List comments form
+		model.addAttribute("commentList", CommentService.getCommentList());
 		
 		return "homePage";
 	}

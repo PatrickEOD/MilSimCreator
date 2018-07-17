@@ -59,6 +59,38 @@
 					<c:if test="${tweet.user.login == authorizedUser.login}">
 						<td><a href='<c:url value="/tweet/delete/${tweet.id}"/>'>Delete</a></td>
 					</c:if>
+					<br/>
+					<table>
+						<tr>
+							<th>Comments:</th>
+						</tr>
+						<c:forEach items="${commentList}" var="comment">
+							<c:if test="${tweet.id == comment.tweet.id}">
+								<tr>
+									<td>${comment.text}</td>
+									<td>${comment.user.login}</td>
+									<td><fmt:formatDate value="${comment.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+									<c:if test="${comment.user.login == authorizedUser.login}">
+										<td><a href='<c:url value="/comment/delete/${comment.id}"/>'>Delete</a></td>
+									</c:if>
+								</tr>
+							</c:if>
+						</c:forEach>
+					</table>
+				</tr>
+				<tr>
+					<form:form method="post" action="http://localhost:8080/MilSimCreator/comment/add" modelAttribute="addComment">
+					<form:hidden path="id"/>
+<%-- 				<form:hidden path="user"/> --%>
+<%-- 					<form:hidden path="tweet"/> --%>
+					<form:hidden path="tweet" value="${tweet.id}"/>
+					<form:hidden path="created"/>
+					<form:label path="text">Add comment:</form:label><br/>
+					<form:textarea type="text" rows="2" cols="25" path="text"/>
+					<form:errors path="text"/>
+			
+					<input type="submit" value="Send"/>
+					</form:form>
 				</tr>
 			</c:forEach>			
 		</table>

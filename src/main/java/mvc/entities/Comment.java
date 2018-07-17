@@ -1,17 +1,13 @@
 package mvc.entities;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,30 +15,34 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "tweets")
-public class Tweet {
+@Table(name = "comments")
+public class Comment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Length(min = 1, max = 250)
+	@Length(min = 1, max = 120)
 	@NotBlank
 	private String text;
 
 	@ManyToOne
 	private User user;
 
+	@ManyToOne
+	private Tweet tweet;
+
 	@Column(columnDefinition = "DATETIME", updatable = false, nullable = false)
 	@NotNull
 	private Timestamp created;
 
-	@OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
-	private List<Comment> comments = new ArrayList<Comment>();
-	
+	public Comment() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-		return "Tweet [id=" + id + ", text=" + text + ", user=" + user + ", created=" + created + "]";
+		return "Comment [id=" + id + ", text=" + text + ", created=" + created + "]";
 	}
 
 	@Override
@@ -52,6 +52,7 @@ public class Tweet {
 		result = prime * result + ((created == null) ? 0 : created.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + ((tweet == null) ? 0 : tweet.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -64,7 +65,7 @@ public class Tweet {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Tweet other = (Tweet) obj;
+		Comment other = (Comment) obj;
 		if (created == null) {
 			if (other.created != null)
 				return false;
@@ -80,16 +81,17 @@ public class Tweet {
 				return false;
 		} else if (!text.equals(other.text))
 			return false;
+		if (tweet == null) {
+			if (other.tweet != null)
+				return false;
+		} else if (!tweet.equals(other.tweet))
+			return false;
 		if (user == null) {
 			if (other.user != null)
 				return false;
 		} else if (!user.equals(other.user))
 			return false;
 		return true;
-	}
-
-	public Tweet() {
-		super();
 	}
 
 	public Long getId() {
@@ -114,6 +116,14 @@ public class Tweet {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Tweet getTweet() {
+		return tweet;
+	}
+
+	public void setTweet(Tweet tweet) {
+		this.tweet = tweet;
 	}
 
 	public Timestamp getCreated() {
