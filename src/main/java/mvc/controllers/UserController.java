@@ -50,6 +50,7 @@ public class UserController {
 	@PostMapping("/add")
 	public String add(@Validated @ModelAttribute (name = "user") User user, BindingResult result) {
 		if(result.hasErrors()) {
+			System.out.println(result.getAllErrors());
 			return "user/add";
 		}
 		user.setCreated(ActualDate.getActualDate());
@@ -78,6 +79,7 @@ public class UserController {
 	@PostMapping("/edit")
 	public String edit(@Validated @ModelAttribute (name = "user") User user, BindingResult result) {
 		if(result.hasErrors()) {
+			System.out.println(result.getAllErrors());
 			return "homePage"; 	
 		}
 		userService.saveUser(user);

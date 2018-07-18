@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mvc.entities.Comment;
 import mvc.entities.Tweet;
 import mvc.entities.User;
-import mvc.repositories.TweetRepository;
 import mvc.services.CommentService;
 import mvc.services.TweetService;
 import mvc.services.UserService;
@@ -24,13 +23,6 @@ import mvc.utils.AuthenticationFacade;
 @RequestMapping("/")
 public class HomePageController {
 
-	private TweetRepository tweetRepository;
-
-	@Autowired
-	public HomePageController(TweetRepository tweetRepository) {
-		this.tweetRepository = tweetRepository;
-	}
-	
 	@Autowired
 	private UserService userService;
 	
@@ -38,7 +30,7 @@ public class HomePageController {
 	private TweetService tweetService;
 	
 	@Autowired
-	private CommentService CommentService;
+	private CommentService commentService;
 
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
@@ -77,7 +69,7 @@ public class HomePageController {
 		model.addAttribute("addComment", comment);
 		
 		//List comments form
-		model.addAttribute("commentList", CommentService.getCommentList());
+		model.addAttribute("commentList", commentService.getCommentList());
 		
 		return "homePage";
 	}

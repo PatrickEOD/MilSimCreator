@@ -81,8 +81,7 @@
 				<tr>
 					<form:form method="post" action="http://localhost:8080/MilSimCreator/comment/add" modelAttribute="addComment">
 					<form:hidden path="id"/>
-<%-- 				<form:hidden path="user"/> --%>
-<%-- 					<form:hidden path="tweet"/> --%>
+					<form:hidden path="user" value="${authorizedUser.id}"/>
 					<form:hidden path="tweet" value="${tweet.id}"/>
 					<form:hidden path="created"/>
 					<form:label path="text">Add comment:</form:label><br/>

@@ -19,6 +19,7 @@ organize teams, headquarters staff and each squad equipment, main duties, tasks 
 **Elements:**
 - users
 - tweets
+- comments
 - gamePlay
 - mainMissions
 - additionalMissions
@@ -52,13 +53,27 @@ Following fields:
 Following fields:
 ```bash
 - text (requred)
-- user
+- user (relation with user entity)
+- comments (relation with comment entity)
 - created (sql Timestamp)
 ```
 - [x] Tweet: validation
 - [x] Tweet: delete function avaliable only for tweet author
 - [x] Tweet: separate page for viewing user's tweets
-- [ ] Tweet: comments for each tweet
+- [x] Tweet: comments for each tweet
+- [x] Tweet: separate jsp for viewing logged user tweets
+
+**Comments:**
+
+Following fields:
+```bash
+- text (required)
+- user (relation with user entity)
+- tweet (relation with tweet entity)
+- created (sql Timestamp)
+```
+- [x] Comment: ability to add comment to each tweet
+- [x] Comment: ability to delete comment only by author of the comment
 
 **GamePlay**
 
@@ -96,7 +111,7 @@ user/edit.jsp | [x] Basic user details available for users and administrator<br/
 to user only for administrator
 user/editPass.jsp | [x] OldPassword confirmation<br/>[x] NewPassword confirmation
 user/list.jsp | [x] All entity fields available as columns<br/>[x] Available for administrator<br/>[x] Change password and delete user only for administrator
-user/tweets.jsp | [x] List of user tweets
+user/tweets.jsp | [x] List of user tweets with comments
 admin/adminPanel.jsp | [ ] Ability to create new milsim<br/>[ ] List of organizator members<br/>[ ] List of milsims with status ended/planned<br/>[ ] Ability to create new missions<br/>[ ] Ability to assing member to take care of mission<br/>[ ] Users list
 
 ## Functions

@@ -1,7 +1,6 @@
 package mvc.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -12,10 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import mvc.entities.Comment;
-import mvc.entities.User;
 import mvc.services.CommentService;
-import mvc.services.UserService;
-import mvc.utils.AuthenticationFacade;
+import mvc.utils.ActualDate;
 
 @Controller
 @RequestMapping("/comment")
@@ -24,28 +21,15 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	
-	@Autowired
-	private UserService userService;
-	
-	
-	@Autowired
-	private AuthenticationFacade authenticationFacade;
-	
 	// CRUD
 
 	@PostMapping("/add")
 	public String add(@Validated @ModelAttribute (name = "addComment") Comment comment, BindingResult result) {
-		System.out.println("==========================================================Create: " + comment.getCreated());
-//		System.out.println("==========================================================User: " + comment.getUser().getLogin());
-//		System.out.println("==========================================================Tweetid: " + comment.getTweet().getId());
 		if(result.hasErrors()) {
-			System.out.println("==========================================================validation error: ");
 			System.out.println(result.getAllErrors());
 			return "redirect:/homePage";
 		}
-		Authentication authentication = authenticationFacade.getAuthentication();
-		User user = userService.getUser(authentication.getName());
-		comment.setUser(user);
+		comment.setCreated(ActualDate.getActualDate());
 		commentService.saveComment(comment);
 		return "redirect:/homePage";
 	}

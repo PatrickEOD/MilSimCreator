@@ -33,7 +33,6 @@ public class LoginController {
 	public String login(Model model) {
 		if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
 			!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
-//			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal(); -- to przekazuje wszysktie dane użytkownika
 			return "redirect:/homePage/homePage";
 		}
 		model.addAttribute(new User());
@@ -53,6 +52,7 @@ public class LoginController {
 	@PostMapping("/register")
 	public String register(@Validated @ModelAttribute User user, BindingResult result, Model model) {
 		if(result.hasErrors()) {
+			System.out.println(result.getAllErrors());
 			return "redirect:/register";
 		}
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
