@@ -4,12 +4,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %> <!-- taglibs are not ignored -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href='<spring:url value="/resources/css/style.css"/>'
+	rel="stylesheet" />
 <title>Registration</title>
 </head>
-<body>
+<body id="register-page">
 <h1>Registration</h1>
 
 <div>
@@ -66,5 +72,21 @@
 <%-- 	</form> --%>
 </div>
 <a href='<c:url value="/login"/>'>Go back to login page</a><br/>
+
+<div class="container">
+		<div class="logo"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="pr-wrap"></div>
+				<div class="wrap">
+				</div>
+			</div>
+		</div>
+		<c:if test="${param.loggedout != null}">
+			<div class="posted-by">Successfully logged out</div>
+		</c:if>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

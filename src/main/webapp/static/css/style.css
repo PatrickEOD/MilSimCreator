@@ -1,11 +1,25 @@
 /* @charset "UTF-8"; */
 body
 {
+/* 	background-image: url('../assets/jpg/Blank_firing.jpeg'); */
+/* 	background-attachment: fixed; */
+/*     background-size: cover; */
+    padding: 0;
+    margin: 0;
+}
+
+body#login-page
+{
 	background-image: url('../assets/jpg/Blank_firing.jpeg');
 	background-attachment: fixed;
     background-size: cover;
-    padding: 0;
-    margin: 0;
+}
+
+body#register-page
+{
+	background-image: url('../assets/jpg/Blank_firing_green.jpeg');
+	background-attachment: fixed;
+    background-size: cover;
 }
 
 .wrap
@@ -71,6 +85,12 @@ form.login input[type="submit"], a.login
 div.login
 {
 	margin-top: 75px;
+}
+
+div.logo
+{
+	content: url('../assets/png/logo.png');	
+	margin: auto;
 }
 
 form.login input[type="submit"], a.login:hover
@@ -186,4 +206,18 @@ form.login a:hover
     background-color: rgba(0, 0, 0, 0.66);
     padding: 10px;
     left: 45%;
+}
+
+.alert 
+{
+	width: 50%;
+    margin: auto;
+	font-family: 'Open Sans' , sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    color: #FF0000;
+/*     margin-top: 5%; */
+    text-transform: uppercase;
+    letter-spacing: 4px;
 }
