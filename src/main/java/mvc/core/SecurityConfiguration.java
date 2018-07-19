@@ -29,7 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 //		super.configure(http); -- to jest nie potrzebne
 		http.authorizeRequests()
-			.antMatchers("/login", "/register") //definiuje strony
+			.antMatchers("/login", "/register", "/resources/**") //definiuje strony
 				.permitAll() // które są dostepne do autoryzacji
 			.antMatchers("/user") //definiouje strony
 				.hasAnyRole("USER", "LIDER", "COOLIDER", "ADMINISTRATOR") //które sa dostepne dla urzytkowników o tych rolach (jedna z nich)

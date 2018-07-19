@@ -20,6 +20,7 @@ public class WebInit implements WebApplicationInitializer {
 		ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(context));
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");
+		servlet.addMapping("/static");
 
 		Dynamic filter = container.addFilter(AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME, new DelegatingFilterProxy());
 		filter.addMappingForUrlPatterns(null, false, "/*");
