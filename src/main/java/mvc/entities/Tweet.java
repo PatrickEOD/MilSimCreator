@@ -26,7 +26,7 @@ public class Tweet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Length(min = 1, max = 250)
+	@Length(min = 1, max = 500)
 	@NotBlank
 	private String text;
 

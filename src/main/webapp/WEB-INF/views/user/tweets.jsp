@@ -33,12 +33,8 @@
 
 
 					<ul class="nav hidden-xs" id="lg-menu">
-						<li class="active"><a
-							href='<c:url value="/user/edit/${authorizedUser.id}"/>'><i
-								class="glyphicon glyphicon-cog"></i> Edit account</a></li>
-						<li><a
-							href='<c:url value="/tweet/userTweetList/${authorizedUser.id}"/>'><i
-								class="glyphicon glyphicon-align-left"></i> Your conversations</a></li>
+						<li class="active"><a href='<c:url value="/user/edit/${authorizedUser.id}"/>'><i class="glyphicon glyphicon-cog"></i> Edit account</a></li>
+						<li><a href='<c:url value="/tweet/userTweetList/${authorizedUser.id}"/>'><i	class="glyphicon glyphicon-align-left"></i> Your conversations</a></li>
 						<sec:authorize access="hasRole('ADMINISTRATOR')">
 							<li><a href='<c:url value="/user/add"/>'><i
 									class="glyphicon glyphicon-plus"></i> Add User</a></li>

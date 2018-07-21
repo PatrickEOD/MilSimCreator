@@ -22,7 +22,7 @@ public class Comment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Length(min = 1, max = 120)
+	@Length(min = 1, max = 500)
 	@NotBlank
 	private String text;
 

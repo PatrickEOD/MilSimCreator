@@ -37,6 +37,12 @@ public class TweetController {
 
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
+	
+	@ModelAttribute("authorizedUser")
+	public User getAuthUser() {
+		User user = userService.getUser(authenticationFacade.getAuthentication().getName());
+		return user;
+	}
 
 	// CRUD
 
