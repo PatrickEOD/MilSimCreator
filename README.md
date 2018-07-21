@@ -44,6 +44,7 @@ Following fields:
 ```
 - [x] User: validation
 - [x] User: log in & log out
+- [ ] User: provide production-like log in: forbidden password and email notification/acceptance features
 - [x] User: registration
 - [ ] User: when registering new user, if field groupMember is filled, new record should be saved in related to groupMember db table for $
 - [ ] User: timeline of availability for user with priviliges Organizator and Administrator for managing ogranizator stuff to support task execution
@@ -62,6 +63,7 @@ Following fields:
 - [x] Tweet: separate page for viewing user's tweets
 - [x] Tweet: comments for each tweet
 - [x] Tweet: separate jsp for viewing logged user tweets
+- [ ] Tweet: ability to edit tweet only for tweet author
 
 **Comments:**
 
@@ -74,6 +76,7 @@ Following fields:
 ```
 - [x] Comment: ability to add comment to each tweet
 - [x] Comment: ability to delete comment only by author of the comment
+- [ ] Comment: ability to edit tweet only for tweet author
 
 **GamePlay**
 
@@ -142,10 +145,16 @@ admin/adminPanel.jsp | [ ] Ability to create new milsim<br/>[ ] List of organiza
 
 > Spring Security
 
+> Bootstrap
+
+> CSS
+
+> JavaScript
+
 ## To do in future
 
-- [ ] HTML/CSS + javaScrpt customization to webPages
-- [ ] JSP/HTML: cover with bootstrap
+- [x] HTML/CSS + javaScrpt customization to webPages (alerady partialy done)
+- [x] JSP/HTML: cover with bootstrap (already partialy done)
 - [ ] JSP/HTML: translation files for all messages to be easily switchable for different languages
 - [ ] Switch between different languages for all views
 - [ ] Password feature: adding requirement to password complexity
