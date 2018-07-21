@@ -5,17 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Header</title>
-</head>
 <body>
-<header>
-
-<sec:authorize access="isAuthenticated()">
-<p>Logged in as: <sec:authentication property="principal.username"/></p>
-</sec:authorize>
-
-<a href="/MilSimCreator/logout">Logout</a>
-
-</header>
+<ul class="list-unstyled hidden-xs" id="sidebar-footer">
+	<sec:authorize access="isAuthenticated()">
+		<li><p><i class="glyphicon glyphicon-user"></i> Logged in as: <sec:authentication property="principal.username"/></p></li>
+	</sec:authorize>
+	<li><p><a href="/MilSimCreator/logout"><i class="glyphicon glyphicon-off"></i> Logout</a></p></li>
+</ul>
 </body>
 </html>
