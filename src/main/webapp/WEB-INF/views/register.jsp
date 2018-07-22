@@ -32,20 +32,23 @@
 						
 						<div class="form-group row">
 							<form:input type="text" path="login" placeholder="Enter login"/>
-							<form:errors path="login" class="alert alert-danger alert-dismissible fade in"/>
+							<form:errors path="login" class="alert alert-danger alert-dismissible fade in">
 								<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								</form:errors>
 						</div>
 						
 						<div class="form-group row">
 							<form:input type="password" path="password" placeholder="Enter password"/>
-							<form:errors path="password" class="alert alert-danger alert-dismissible fade in"/>
+							<form:errors path="password" class="alert alert-danger alert-dismissible fade in">
 								<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								</form:errors>
 						</div>
 	
 						<div class="form-group row">
 							<form:input type="email" path="email" placeholder="Enter email"/>
-							<form:errors path="email" class="alert alert-danger alert-dismissible fade in"/>
+							<form:errors path="email" class="alert alert-danger alert-dismissible fade in">
 								<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								</form:errors>
 						</div>
 						
 						<div class="form-group row">
@@ -58,8 +61,9 @@
 								<form:option value="" label="Primary weapon of choice:"/>
 								<form:options items="${WeaponType}"/>
 							</form:select>
-							<form:errors path="primaryWeapon" class="alert alert-danger alert-dismissible fade in"/>
+							<form:errors path="primaryWeapon" class="alert alert-danger alert-dismissible fade in">
 								<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								</form:errors>
 						</div>
 						
 						<div class="form-group row">

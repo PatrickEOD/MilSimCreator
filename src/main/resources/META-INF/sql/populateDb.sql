@@ -10,8 +10,18 @@ INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMem
 INSERT INTO User_priviliges (User_id, priviliges) VALUES (4, "USER")
 INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("Milus", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "milus@wp.pl", "SUPPORT", "ASSAULT", "ASGWawa", "2012-05-27 18:30:37", true);
 INSERT INTO User_priviliges (User_id, priviliges) VALUES (5, "USER")
-INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("SPAJDA", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "SPAIDA@wp.pl", "SNIPER", "SUPPORT", "OSA", "2012-06-30 17:35:21", true);
+INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("SPAJDA", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "SPAIDA@wp.pl", "SNIPER", "SUPPORT", "OSA", "2012-06-30 17:58:21", true);
 INSERT INTO User_priviliges (User_id, priviliges) VALUES (6, "USER")
+INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("WLADEK", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "vladek@wp.pl", "ASSAULT", "SUPPORT", "OSA", "2012-06-30 17:04:04", true);
+INSERT INTO User_priviliges (User_id, priviliges) VALUES (7, "USER")
+INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("git", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "git@wp.pl", "SNIPER", "SUPPORT", "OSA", "2012-05-29 13:00:21", true);
+INSERT INTO User_priviliges (User_id, priviliges) VALUES (8, "USER")
+INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("CYGAN", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "cygan@wp.pl", "SNIPER", "SNIPER", "CYGAN TEAM", "2012-07-30 17:35:21", true);
+INSERT INTO User_priviliges (User_id, priviliges) VALUES (9, "USER")
+INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("Popey", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "popey@wp.pl", "SUPPORT", "ASSAULT", "CYGAN TEAM", "2012-07-31 07:12:00", true);
+INSERT INTO User_priviliges (User_id, priviliges) VALUES (10, "USER")
+INSERT INTO users (login, password, email, primaryWeapon, backupWeapon, groupMember, created, active) VALUES ("Smok wawelski", "$2a$10$wWh7p81HHTDgAurUosNBOuJS/H82OvdjG0gAQsOosOJz2ogonmnyi", "smok@wp.pl", "ASSAULT", "SUPPORT", "CYGAN TEAM", "2012-08-01 22:45:01", true);
+INSERT INTO User_priviliges (User_id, priviliges) VALUES (11, "USER")
 
 INSERT INTO tweets (created, text, user_id) VALUES ("2013-04-12 21:12:43", "Tru, tru. Co to za gniot?! Pliki muszą wyjść dzisiaj, nadszedł czas na mini brejnstorm, dlatego nie musi to być ASAP. Na to wygląda, że znowu zmienili hasła do drukarek, a Pamela jest na urlopie, także musimy ich zacząć ścigać. Na szczęście mamy wszystkie konieczne apruwale, także klient będzie usytasy. Fakap na całej linii: serwer się zaciął, więc nie ma się co śmiać - nie ma opierdalania się!", "1");
 INSERT INTO tweets (created, text, user_id) VALUES ("2013-04-12 21:13:43", "Jestem dobrym kołczem dla was. Tak myślę, że nie potraficie ogarnąć nawet najprostszego fakapu, więc obcinam wam pensje do czasu poprawy sytuacji. Może poczekamy jeszcze trochę na wypłaty. Zrób coś lepszego. Ciężka sprawa, bo kołczing to coś, czego wam trzeba, także znowu będzie FAKAP. Nie podoba mi się.", "1");

@@ -77,6 +77,7 @@ public class TweetController {
 		// Add comments form
 		Comment comment = new Comment();
 		comment.setUser(user);
+		comment.setCreated(ActualDate.getActualDate());
 		model.addAttribute("addComment", comment);
 
 		// List comments form

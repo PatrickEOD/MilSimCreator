@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import mvc.entities.User;
 import mvc.services.UserService;
 import mvc.utils.ActualDate;
+import mvc.utils.AuthenticationFacade;
 import mvc.utils.enums.Privilige;
 import mvc.utils.enums.WeaponType;
 
@@ -30,11 +31,19 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private AuthenticationFacade authenticationFacade;
+	
 	@ModelAttribute("WeaponType")
 	public WeaponType[] weaponType() {
 		return WeaponType.values();
 	}
-	
+
+	@ModelAttribute("authorizedUser")
+	public User getAuthUser() {
+		User user = userService.getUser(authenticationFacade.getAuthentication().getName());
+		return user;
+	}
 	//CRUD: create
 	
 	@GetMapping("/add")

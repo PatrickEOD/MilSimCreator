@@ -1,7 +1,9 @@
 package mvc.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import mvc.entities.Comment;
+import mvc.entities.User;
 import mvc.services.CommentService;
+import mvc.services.UserService;
 import mvc.utils.ActualDate;
+import mvc.utils.AuthenticationFacade;
 
 @Controller
 @RequestMapping("/comment")
@@ -21,8 +26,29 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private AuthenticationFacade authenticationFacade;
+	
 	// CRUD
 
+//	@GetMapping("/add/{id}")
+//	public String add(@PathVariable Long id, Model model) {
+//		Comment comment = commentService.getComment(id);
+//		comment.setCreated(ActualDate.getActualDate());
+//		Authentication authentication = authenticationFacade.getAuthentication();
+//		User user = userService.getUser(authentication.getName());
+//		comment.setUser(user);
+//		comment.setCreated(ActualDate.getActualDate());
+//		model.addAttribute("addComment", comment);
+//		
+//		// List comments form
+//		model.addAttribute("commentList", commentService.getCommentList());
+//		return "user/tweets";
+//	}
+	
 	@PostMapping("/add")
 	public String add(@Validated @ModelAttribute (name = "addComment") Comment comment, BindingResult result) {
 		if(result.hasErrors()) {

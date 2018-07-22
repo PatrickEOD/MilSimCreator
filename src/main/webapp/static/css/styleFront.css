@@ -93,6 +93,8 @@ label.weapon, select.weapon
     color: #737373;
     outline: 0;
 }
+
+
 form.login input[type="submit"], a.login
 {
     width: 100%;

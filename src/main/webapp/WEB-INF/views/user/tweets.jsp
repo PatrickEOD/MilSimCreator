@@ -149,14 +149,10 @@
 												<div class="input-placeholder">Add a comment...</div>
 											</div>
 											<div class="panel-google-plus-comment">
-												<img class="[ img-circle]"
-													src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46"
-													alt="User Image" />
+												<img class="[ img-circle]" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
 												<div class="panel-google-plus-textarea">
 
-													<form:form method="post"
-														action="http://localhost:8080/MilSimCreator/comment/add"
-														modelAttribute="addComment">
+													<form:form method="post" action="http://localhost:8080/MilSimCreator/comment/add" modelAttribute="addComment">
 														<form:hidden path="id" />
 														<form:hidden path="user" value="${authorizedUser.id}" />
 														<form:hidden path="tweet" value="${tweet.id}" />
