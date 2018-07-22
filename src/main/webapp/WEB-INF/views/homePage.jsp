@@ -124,77 +124,77 @@
 										</div>
 									</div>
 
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a href="#" class="pull-right">View all</a>
-											<h4>More Templates</h4>
-										</div>
-										<div class="panel-body">
-											<img src="//placehold.it/150x150"
-												class="img-circle pull-right"> <a href="#">Free
-												@Bootply</a>
-											<div class="clearfix"></div>
-											There a load of new free Bootstrap 3 ready templates at
-											Bootply. All of these templates are free and don't require
-											extensive customization to the Bootstrap baseline.
-											<hr>
-											<ul class="list-unstyled">
-												<li><a href="http://www.bootply.com/templates">Dashboard</a></li>
-												<li><a href="http://www.bootply.com/templates">Darkside</a></li>
-												<li><a href="http://www.bootply.com/templates">Greenfield</a></li>
-											</ul>
-										</div>
-									</div>
+<!-- 									<div class="panel panel-default"> -->
+<!-- 										<div class="panel-heading"> -->
+<!-- 											<a href="#" class="pull-right">View all</a> -->
+<!-- 											<h4>More Templates</h4> -->
+<!-- 										</div> -->
+<!-- 										<div class="panel-body"> -->
+<!-- 											<img src="//placehold.it/150x150" -->
+<!-- 												class="img-circle pull-right"> <a href="#">Free -->
+<!-- 												@Bootply</a> -->
+<!-- 											<div class="clearfix"></div> -->
+<!-- 											There a load of new free Bootstrap 3 ready templates at -->
+<!-- 											Bootply. All of these templates are free and don't require -->
+<!-- 											extensive customization to the Bootstrap baseline. -->
+<!-- 											<hr> -->
+<!-- 											<ul class="list-unstyled"> -->
+<!-- 												<li><a href="http://www.bootply.com/templates">Dashboard</a></li> -->
+<!-- 												<li><a href="http://www.bootply.com/templates">Darkside</a></li> -->
+<!-- 												<li><a href="http://www.bootply.com/templates">Greenfield</a></li> -->
+<!-- 											</ul> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
 
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<h4>What Is Bootstrap?</h4>
-										</div>
-										<div class="panel-body">Bootstrap is front end
-											frameworkto build custom web applications that are fast,
-											responsive &amp; intuitive. It consist of CSS and HTML for
-											typography, forms, buttons, tables, grids, and navigation
-											along with custom-built jQuery plug-ins and support for
-											responsive layouts. With dozens of reusable components for
-											navigation, pagination, labels, alerts etc..</div>
-									</div>
+<!-- 									<div class="panel panel-default"> -->
+<!-- 										<div class="panel-heading"> -->
+<!-- 											<h4>What Is Bootstrap?</h4> -->
+<!-- 										</div> -->
+<!-- 										<div class="panel-body">Bootstrap is front end -->
+<!-- 											frameworkto build custom web applications that are fast, -->
+<!-- 											responsive &amp; intuitive. It consist of CSS and HTML for -->
+<!-- 											typography, forms, buttons, tables, grids, and navigation -->
+<!-- 											along with custom-built jQuery plug-ins and support for -->
+<!-- 											responsive layouts. With dozens of reusable components for -->
+<!-- 											navigation, pagination, labels, alerts etc..</div> -->
+<!-- 									</div> -->
 
 
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a href="#" class="pull-right">View all</a>
-											<h4>Portlet Heading</h4>
-										</div>
-										<div class="panel-body">
-											<ul class="list-group">
-												<li class="list-group-item">Modals</li>
-												<li class="list-group-item">Sliders / Carousel</li>
-												<li class="list-group-item">Thumbnails</li>
-											</ul>
-										</div>
-									</div>
+<!-- 									<div class="panel panel-default"> -->
+<!-- 										<div class="panel-heading"> -->
+<!-- 											<a href="#" class="pull-right">View all</a> -->
+<!-- 											<h4>Portlet Heading</h4> -->
+<!-- 										</div> -->
+<!-- 										<div class="panel-body"> -->
+<!-- 											<ul class="list-group"> -->
+<!-- 												<li class="list-group-item">Modals</li> -->
+<!-- 												<li class="list-group-item">Sliders / Carousel</li> -->
+<!-- 												<li class="list-group-item">Thumbnails</li> -->
+<!-- 											</ul> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
 
-									<div class="panel panel-default">
-										<div class="panel-thumbnail">
-											<img src="/assets/example/bg_4.jpg" class="img-responsive">
-										</div>
-										<div class="panel-body">
-											<p class="lead">Social Good</p>
-											<p>1,200 Followers, 83 Posts</p>
+<!-- 									<div class="panel panel-default"> -->
+<!-- 										<div class="panel-thumbnail"> -->
+<!-- 											<img src="/assets/example/bg_4.jpg" class="img-responsive"> -->
+<!-- 										</div> -->
+<!-- 										<div class="panel-body"> -->
+<!-- 											<p class="lead">Social Good</p> -->
+<!-- 											<p>1,200 Followers, 83 Posts</p> -->
 
-											<p>
-												<img
-													src="https://lh6.googleusercontent.com/-5cTTMHjjnzs/AAAAAAAAAAI/AAAAAAAAAFk/vgza68M4p2s/s28-c-k-no/photo.jpg"
-													width="28px" height="28px"> 
-												<img
-													src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg"
-													width="28px" height="28px"> 
-												<img
-													src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg"
-													width="28px" height="28px">
-											</p>
-										</div>
-									</div>
+<!-- 											<p> -->
+<!-- 												<img -->
+<!-- 													src="https://lh6.googleusercontent.com/-5cTTMHjjnzs/AAAAAAAAAAI/AAAAAAAAAFk/vgza68M4p2s/s28-c-k-no/photo.jpg" -->
+<!-- 													width="28px" height="28px">  -->
+<!-- 												<img -->
+<!-- 													src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" -->
+<!-- 													width="28px" height="28px">  -->
+<!-- 												<img -->
+<!-- 													src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" -->
+<!-- 													width="28px" height="28px"> -->
+<!-- 											</p> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
 
 								</div>
 

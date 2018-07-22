@@ -49,6 +49,11 @@ hr {
   border-color:#dedede;
 }
 
+div.alert
+{
+	width: 100%;	
+}
+
 .wrapper, .row {
    height: 100%;
    margin-left:0;

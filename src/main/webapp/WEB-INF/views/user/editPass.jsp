@@ -81,9 +81,8 @@
 
 
 								<!-- main col -->
-								<div class="col-sm-3">
-								</div>
-								<div class="col-sm-6">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-8">
 									<div class="wrap">
 										<p class="form-title">Change Password:</p>
 										<form:form class="login" method="post" action="http://localhost:8080/MilSimCreator/user/editPass" modelAttribute="user">
@@ -99,14 +98,14 @@
 											<form:hidden path="password"/>
 											
 											
-											<div class="form-group row">
+<!-- 											<div class="form-group row"> -->
 												<c:if test="${not empty wrongPassword}">
 													<div class="alert alert-danger alert-dismissible fade in">
 														<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 														<p ><c:out value="${wrongPassword}"/></p>
 													</div>
 												</c:if>
-											</div>
+<!-- 											</div> -->
 											
 											<div class="form-group row">
 												<c:if test="${not empty wrongConfirm}">
@@ -133,8 +132,7 @@
 										</form:form>
 									</div>
 								</div>
-								<div class="col-sm-3">
-								</div>
+								<div class="col-sm-2"></div>
 							</div>
 
 						</div>
