@@ -148,50 +148,6 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-<h1>Change your password</h1>
-<form:form method="post" action="http://localhost:8080/MilSimCreator/user/editPass" modelAttribute="user">
-	<form:hidden path="id"/>
-	<form:hidden path="login"/>
-	<form:hidden path="email"/>
-	<form:hidden path="groupMember"/>
-	<form:hidden path="primaryWeapon"/>
-	<form:hidden path="backupWeapon"/>
-	<form:hidden path="created"/>
-	<form:hidden path="priviliges"/>
-	<form:hidden path="active"/>
-	<form:hidden path="password"/>
-	
-	<div>
-		<c:if test="${not empty wrongPassword}">
-			<p><c:out value="${wrongPassword}"/></p>
-		</c:if>
-	</div>
-	<div>
-		<c:if test="${not empty wrongConfirm}">
-			<p><c:out value="${wrongConfirm}"/></p>
-		</c:if>
-	</div>
-	
-	Old Password:
-	<input type="password" name="oldPassword"/><br/>
-	
-	New Password:
-	<input type="password" name="newPassword"/><br/>
-	
-	Confirm Password:
-	<input type="password" name="confirmPassword"/><br/>
-	
-	<input type="submit" value="save"/>
-</form:form>
-<br/>
-<a href='<c:url value="/homePage"/>'>Go To HomePage</a><br/>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

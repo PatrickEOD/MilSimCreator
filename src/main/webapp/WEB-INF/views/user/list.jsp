@@ -138,41 +138,6 @@
 			</div>
 		</div>
 	</div>
-	
-<!-- <h1>List of Users</h1> -->
-<!-- <table> -->
-<!-- 	<tr> -->
-<!-- 		<th>Login</th> -->
-<!-- 		<th>Email</th> -->
-<!-- 		<th>Group Member</th> -->
-<!-- 		<th>Primary</th> -->
-<!-- 		<th>Backup</th> -->
-<!-- 		<th>Priviliges</th> -->
-<!-- 		<th>Created</th> -->
-<!-- 		<th>State</th> -->
-<!-- 	</tr> -->
-<%-- 	<c:forEach items="${user}" var="a"> --%>
-<!-- 		<tr> -->
-<%-- 			<td>${a.login}</td> --%>
-<%-- 			<td>${a.email}</td> --%>
-<%-- 			<td>${a.groupMember}</td> --%>
-<%-- 			<td>${a.primaryWeapon}</td> --%>
-<%-- 			<td>${a.backupWeapon}</td> --%>
-<!-- 			<td> -->
-<%-- 				<c:forEach items="${a.priviliges}" var="c"> --%>
-<%-- 					${c} --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</td> -->
-<%-- 			<td><fmt:formatDate value="${a.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td> --%>
-<%-- 			<td>${a.active ? "OK" : "BANNED"}</td> --%>
-<%-- 			<td><a href='<c:url value="/user/edit/${a.id}"/>'>Edit User</a> --%>
-<%-- 				<sec:authorize access="hasRole('ADMINISTRATOR')"> --%>
-<%-- 					<a href='<c:url value="/user/editPass/${a.id}"/>'>Change password</a> --%>
-<%-- 				</sec:authorize> --%>
-<%-- 				<a href='<c:url value="/user/delete/${a.id}"/>'>Delete User</a></td> --%>
-<!-- 		</tr> -->
-<%-- 	</c:forEach> --%>
-<!-- </table> -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

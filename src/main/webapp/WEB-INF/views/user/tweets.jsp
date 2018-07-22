@@ -84,24 +84,6 @@
 								<!-- main col -->
 								<div class="col-sm-12">
 
-<!-- 									<div class="well"> -->
-<%-- 										<form:form class="orm-horizontal" method="post" --%>
-<%-- 											action="http://localhost:8080/MilSimCreator/tweet/add" --%>
-<%-- 											modelAttribute="addTweet"> --%>
-<!-- 											<h4>Let your team know what are You planning...</h4> -->
-<!-- 											<div class="form-group" style="padding: 14px;"> -->
-<%-- 												<form:hidden path="id" /> --%>
-<%-- 												<form:hidden path="created" /> --%>
-<%-- 												<form:textarea class="form-control" type="text" rows="4" --%>
-<%-- 													cols="50" path="text" placeholder="Put your message here" /> --%>
-<%-- 												<form:errors path="text" /> --%>
-<!-- 												<input type="submit" value="Send" -->
-<!-- 													class="btn btn-primary pull-right" style="margin: 10px" /> -->
-<!-- 											</div> -->
-<!-- 											<input type="submit" value="Send" class="btn btn-primary pull-right"/><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul> -->
-<%-- 										</form:form> --%>
-<!-- 									</div> -->
-								
 									<c:forEach items="${userTweets}" var="tweet">
 										<div class="[ panel panel-default ] panel-google-plus">
 											<div>
@@ -173,31 +155,6 @@
 							</div>
 							<!--/row-->
 
-<!-- 							<div class="row"> -->
-<!-- 								<div class="col-sm-6"> -->
-<!-- 									<a href="#">Twitter</a> <small class="text-muted">|</small> <a -->
-<!-- 										href="#">Facebook</a> <small class="text-muted">|</small> <a -->
-<!-- 										href="#">Google+</a> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-
-<!-- 							<div class="row" id="footer"> -->
-<!-- 								<div class="col-sm-6"></div> -->
-<!-- 								<div class="col-sm-6"> -->
-<!-- 									<p> -->
-<!-- 										<a href="#" class="pull-right">©Copyright 2018</a> -->
-<!-- 									</p> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 							<hr> -->
-
-							<!--                       <hr> -->
-
-							<!--                       <h4 class="text-center"> -->
-							<!--                       <a href="http://bootply.com/96266" target="ext">Download this Template @Bootply</a> -->
-							<!--                       </h4> -->
-
-							<!--                       <hr> -->
 
 
 						</div>
@@ -210,86 +167,7 @@
 			</div>
 		</div>
 	</div>
-	<!--post modal-->
-	<!-- <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"> -->
-	<!--   <div class="modal-dialog"> -->
-	<!--   <div class="modal-content"> -->
-	<!--       <div class="modal-header"> -->
-	<!--           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
-	<!-- 			Update Status -->
-	<!--       </div> -->
-	<!--       <div class="modal-body"> -->
-	<%--           <form class="form center-block"> --%>
-	<!--             <div class="form-group"> -->
-	<!--               <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea> -->
-	<!--             </div> -->
-	<%--           </form> --%>
-	<!--       </div> -->
-	<!--       <div class="modal-footer"> -->
-	<!--           <div> -->
-	<!--           <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button> -->
-	<!--             <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul> -->
-	<!-- 		  </div>	 -->
-	<!--       </div> -->
-	<!--   </div> -->
-	<!--   </div> -->
-	<!-- </div> -->
 	
-	
-	
-	
-	
-<%-- <jsp:include page="../fragments/header.jsp" /> --%>
-<!-- <h1>Your conversations:</h1> -->
-<!-- <table> -->
-<!-- 			<tr> -->
-<!-- 				<th>Text:</th> -->
-<!-- 				<th>User</th> -->
-<!-- 				<th>Date:</th> -->
-<!-- 			</tr> -->
-<%-- 			<c:forEach items="${userTweets}" var="tweet"> --%>
-<!-- 				<tr> -->
-<%-- 					<td>${tweet.text}</td> --%>
-<%-- 					<td>${tweet.user.login}</td> --%>
-<%-- 					<td><fmt:formatDate value="${tweet.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td> --%>
-<%-- 					<c:if test="${tweet.user.login == authorizedUser.login}"> --%>
-<%-- 						<td><a href='<c:url value="/tweet/delete/${tweet.id}"/>'>Delete</a></td> --%>
-<%-- 					</c:if> --%>
-<!-- 					<br/> -->
-<!-- 					<table> -->
-<!-- 						<tr> -->
-<!-- 							<th>Comments:</th> -->
-<!-- 						</tr> -->
-<%-- 						<c:forEach items="${commentList}" var="comment"> --%>
-<%-- 							<c:if test="${tweet.id == comment.tweet.id}"> --%>
-<!-- 								<tr> -->
-<%-- 									<td>${comment.text}</td> --%>
-<%-- 									<td>${comment.user.login}</td> --%>
-<%-- 									<td><fmt:formatDate value="${comment.created}" pattern="yyyy-MM-dd HH:mm:ss"/></td> --%>
-<%-- 									<c:if test="${comment.user.login == authorizedUser.login}"> --%>
-<%-- 										<td><a href='<c:url value="/comment/delete/${comment.id}"/>'>Delete</a></td> --%>
-<%-- 									</c:if> --%>
-<!-- 								</tr> -->
-<%-- 							</c:if> --%>
-<%-- 						</c:forEach> --%>
-<!-- 					</table> -->
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<%-- 					<form:form method="post" action="http://localhost:8080/MilSimCreator/comment/add" modelAttribute="addComment"> --%>
-<%-- 					<form:hidden path="id"/> --%>
-<%-- 					<form:hidden path="user" value="${authorizedUser.id}"/> --%>
-<%-- 					<form:hidden path="tweet" value="${tweet.id}"/> --%>
-<%-- 					<form:hidden path="created"/> --%>
-<%-- 					<form:label path="text">Add comment:</form:label><br/> --%>
-<%-- 					<form:textarea type="text" rows="2" cols="25" path="text"/> --%>
-<%-- 					<form:errors path="text"/> --%>
-			
-<!-- 					<input type="submit" value="Send"/> -->
-<%-- 					</form:form> --%>
-<!-- 				</tr> -->
-<%-- 			</c:forEach>			 --%>
-<!-- 		</table> -->
-<%-- <a href='<c:url value="/homePage"/>'>Go To HomePage</a><br/> --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src='<spring:url value="/resources/js/commentBox.js"/>'></script>
